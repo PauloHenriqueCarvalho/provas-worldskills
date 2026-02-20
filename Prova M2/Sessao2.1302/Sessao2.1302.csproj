@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BD3FCF7D-078A-4CDC-8DAD-4223DBA2BFDF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Sessao2._1302</RootNamespace>
+    <AssemblyName>Sessao2.1302</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\CardProduto.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\CardProduto.Designer.cs">
+      <DependentUpon>CardProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CardSolicitacao.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\CardSolicitacao.Designer.cs">
+      <DependentUpon>CardSolicitacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Global.cs" />
+    <Compile Include="Data\SolicitacaoDTO.cs" />
+    <Compile Include="Data\Theme.cs" />
+    <Compile Include="Models\DetalhesProdutosDTO.cs" />
+    <Compile Include="View\CadastroUsuarioView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CadastroUsuarioView.Designer.cs">
+      <DependentUpon>CadastroUsuarioView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\DetalhesProdutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DetalhesProdutos.Designer.cs">
+      <DependentUpon>DetalhesProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cashback.cs" />
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Fornecedor.cs" />
+    <Compile Include="Models\Pessoa.cs" />
+    <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\ProdutoSolicitacao.cs" />
+    <Compile Include="Models\Solicitacao.cs" />
+    <Compile Include="Models\TipoProduto.cs" />
+    <Compile Include="Models\Usuarios.cs" />
+    <Compile Include="View\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ModalEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ModalEstoque.Designer.cs">
+      <DependentUpon>ModalEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NovaSolicitacaoView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NovaSolicitacaoView.Designer.cs">
+      <DependentUpon>NovaSolicitacaoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\OrdenarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OrdenarView.Designer.cs">
+      <DependentUpon>OrdenarView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\PadraoDAO.cs" />
+    <Compile Include="View\ProdutoCadastroView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ProdutoCadastroView.Designer.cs">
+      <DependentUpon>ProdutoCadastroView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProdutoView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ProdutoView.Designer.cs">
+      <DependentUpon>ProdutoView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Data\CardProduto.resx">
+      <DependentUpon>CardProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\CardSolicitacao.resx">
+      <DependentUpon>CardSolicitacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CadastroUsuarioView.resx">
+      <DependentUpon>CadastroUsuarioView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DetalhesProdutos.resx">
+      <DependentUpon>DetalhesProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ModalEstoque.resx">
+      <DependentUpon>ModalEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NovaSolicitacaoView.resx">
+      <DependentUpon>NovaSolicitacaoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OrdenarView.resx">
+      <DependentUpon>OrdenarView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="View\ProdutoCadastroView.resx">
+      <DependentUpon>ProdutoCadastroView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ProdutoView.resx">
+      <DependentUpon>ProdutoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PonteDourada.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\equipamento.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\higiene.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\medicamento.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\27.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\30.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
