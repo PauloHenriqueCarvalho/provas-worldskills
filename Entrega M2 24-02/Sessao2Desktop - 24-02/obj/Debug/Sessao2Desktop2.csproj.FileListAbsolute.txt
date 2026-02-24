@@ -1,0 +1,16 @@
+C:\Users\Senai\Documents\NetBeansProjects\Sessao2Desktop2\bin\Debug\Sessao2Desktop2.exe.config
+C:\Users\Senai\Documents\NetBeansProjects\Sessao2Desktop2\bin\Debug\Sessao2Desktop2.exe
+C:\Users\Senai\Documents\NetBeansProjects\Sessao2Desktop2\bin\Debug\Sessao2Desktop2.pdb
+C:\Users\Senai\Documents\NetBeansProjects\Sessao2Desktop2\obj\Debug\Sessao2Desktop2.csproj.AssemblyReference.cache
+C:\Users\Senai\Documents\NetBeansProjects\Sessao2Desktop2\obj\Debug\Sessao2Desktop2.Form1.resources
+C:\Users\Senai\Documents\NetBeansProjects\Sessao2Desktop2\obj\Debug\Sessao2Desktop2.Properties.Resources.resources
+C:\Users\Senai\Documents\NetBeansProjects\Sessao2Desktop2\obj\Debug\Sessao2Desktop2.csproj.GenerateResource.cache
+C:\Users\Senai\Documents\NetBeansProjects\Sessao2Desktop2\obj\Debug\Sessao2Desktop2.csproj.CoreCompileInputs.cache
+C:\Users\Senai\Documents\NetBeansProjects\Sessao2Desktop2\obj\Debug\Sessao2Desktop2.exe
+C:\Users\Senai\Documents\NetBeansProjects\Sessao2Desktop2\obj\Debug\Sessao2Desktop2.pdb
+C:\Users\Senai\Documents\NetBeansProjects\Sessao2Desktop2\obj\Debug\Sessao2Desktop2.Data.CardSolicitacao.resources
+C:\Users\Senai\Documents\NetBeansProjects\Sessao2Desktop2\obj\Debug\Sessao2Desktop2.View.SolicitacoesView.resources
+C:\Users\Senai\Documents\NetBeansProjects\Sessao2Desktop2\obj\Debug\Sessao2Desktop2.View.DetalhesView.resources
+C:\Users\Senai\Documents\NetBeansProjects\Sessao2Desktop2\obj\Debug\Sessao2Desktop2.Data.CardProduto.resources
+C:\Users\Senai\Documents\NetBeansProjects\Sessao2Desktop2\obj\Debug\Sessao2Desktop2.View.NovaSolicitacao.resources
+C:\Users\Senai\Documents\NetBeansProjects\Sessao2Desktop2\obj\Debug\Sessao2Desktop2.View.ModalEstoque.resources
