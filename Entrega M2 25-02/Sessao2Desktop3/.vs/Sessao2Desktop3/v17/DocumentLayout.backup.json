@@ -1,0 +1,456 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\data\\padraodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:data\\padraodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\view\\cadastrousuarioview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:view\\cadastrousuarioview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\view\\cadastrousuarioview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:view\\cadastrousuarioview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\view\\produtosview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:view\\produtosview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\view\\produtosview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:view\\produtosview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\model\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:model\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\view\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:view\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\view\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:view\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\view\\telasolicitacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:view\\telasolicitacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\view\\novasolicitacaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:view\\novasolicitacaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\view\\telasolicitacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:view\\telasolicitacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\data\\cardsolicitacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:data\\cardsolicitacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\data\\cardsolicitacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:data\\cardsolicitacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\view\\novasolicitacaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:view\\novasolicitacaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\view\\detalhessolicitacaoview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:view\\detalhessolicitacaoview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\view\\detalhessolicitacaoview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:view\\detalhessolicitacaoview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\data\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:data\\global.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\view\\modalestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:view\\modalestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\data\\cardproduto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:data\\cardproduto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\view\\modalestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:view\\modalestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\data\\cardproduto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:data\\cardproduto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\view\\detalhesview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:view\\detalhesview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\view\\detalhesview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:view\\detalhesview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\model\\cardsolicitacaodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:model\\cardsolicitacaodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\data\\theme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:data\\theme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|c:\\users\\senai\\documents\\netbeansprojects\\sessao2desktop3\\model\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FB98529-15A7-436E-9995-21ED31A7E847}|Sessao2Desktop3.csproj|solutionrelative:model\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 681,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProdutosView.cs",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\ProdutosView.cs",
+              "RelativeDocumentMoniker": "View\\ProdutosView.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\ProdutosView.cs",
+              "RelativeToolTip": "View\\ProdutosView.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAIwBsAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T16:30:07.175Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProdutosView.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\ProdutosView.cs",
+              "RelativeDocumentMoniker": "View\\ProdutosView.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\ProdutosView.cs [Design]",
+              "RelativeToolTip": "View\\ProdutosView.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T16:28:11.843Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CadastroUsuarioView.cs",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\CadastroUsuarioView.cs",
+              "RelativeDocumentMoniker": "View\\CadastroUsuarioView.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\CadastroUsuarioView.cs",
+              "RelativeToolTip": "View\\CadastroUsuarioView.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T16:09:27.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PadraoDAO.cs",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\data\\PadraoDAO.cs",
+              "RelativeDocumentMoniker": "data\\PadraoDAO.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\data\\PadraoDAO.cs*",
+              "RelativeToolTip": "data\\PadraoDAO.cs*",
+              "ViewState": "AgIAAP8AAAAAAAAAAAAmwBMBAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T12:58:35.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Produto.cs",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\Model\\Produto.cs",
+              "RelativeDocumentMoniker": "Model\\Produto.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\Model\\Produto.cs",
+              "RelativeToolTip": "Model\\Produto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBQAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T13:11:12.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TelaSolicitacao.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\TelaSolicitacao.cs",
+              "RelativeDocumentMoniker": "View\\TelaSolicitacao.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\TelaSolicitacao.cs [Design]",
+              "RelativeToolTip": "View\\TelaSolicitacao.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T13:04:37.995Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\Form1.cs",
+              "RelativeDocumentMoniker": "View\\Form1.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\Form1.cs [Design]",
+              "RelativeToolTip": "View\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T12:56:04.468Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CadastroUsuarioView.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\CadastroUsuarioView.cs",
+              "RelativeDocumentMoniker": "View\\CadastroUsuarioView.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\CadastroUsuarioView.cs [Design]",
+              "RelativeToolTip": "View\\CadastroUsuarioView.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T16:05:07.489Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "NovaSolicitacaView.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\NovaSolicitacaView.cs",
+              "RelativeDocumentMoniker": "View\\NovaSolicitacaView.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\NovaSolicitacaView.cs [Design]",
+              "RelativeToolTip": "View\\NovaSolicitacaView.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T13:53:18.048Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "NovaSolicitacaView.cs",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\NovaSolicitacaView.cs",
+              "RelativeDocumentMoniker": "View\\NovaSolicitacaView.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\NovaSolicitacaView.cs",
+              "RelativeToolTip": "View\\NovaSolicitacaView.cs",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAAUwOEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T13:56:24.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\Form1.cs",
+              "RelativeDocumentMoniker": "View\\Form1.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\Form1.cs",
+              "RelativeToolTip": "View\\Form1.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAswCwAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T12:56:09.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ModalEstoque.cs",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\ModalEstoque.cs",
+              "RelativeDocumentMoniker": "View\\ModalEstoque.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\ModalEstoque.cs",
+              "RelativeToolTip": "View\\ModalEstoque.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAgwDgAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T14:10:00.056Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TelaSolicitacao.cs",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\TelaSolicitacao.cs",
+              "RelativeDocumentMoniker": "View\\TelaSolicitacao.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\TelaSolicitacao.cs",
+              "RelativeToolTip": "View\\TelaSolicitacao.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAA2wE8AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T13:23:11.242Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CardSolicitacao.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\data\\CardSolicitacao.cs",
+              "RelativeDocumentMoniker": "data\\CardSolicitacao.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\data\\CardSolicitacao.cs [Design]",
+              "RelativeToolTip": "data\\CardSolicitacao.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T13:09:16.614Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CardSolicitacao.cs",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\data\\CardSolicitacao.cs",
+              "RelativeDocumentMoniker": "data\\CardSolicitacao.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\data\\CardSolicitacao.cs",
+              "RelativeToolTip": "data\\CardSolicitacao.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T13:10:28.148Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ModalEstoque.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\ModalEstoque.cs",
+              "RelativeDocumentMoniker": "View\\ModalEstoque.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\ModalEstoque.cs [Design]",
+              "RelativeToolTip": "View\\ModalEstoque.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T14:09:23.171Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "DetalhesSolicitacaoView.cs",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\DetalhesSolicitacaoView.cs",
+              "RelativeDocumentMoniker": "View\\DetalhesSolicitacaoView.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\DetalhesSolicitacaoView.cs",
+              "RelativeToolTip": "View\\DetalhesSolicitacaoView.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAzwBIAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T14:58:04.559Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DetalhesSolicitacaoView.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\DetalhesSolicitacaoView.cs",
+              "RelativeDocumentMoniker": "View\\DetalhesSolicitacaoView.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\DetalhesSolicitacaoView.cs [Design]",
+              "RelativeToolTip": "View\\DetalhesSolicitacaoView.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T14:57:26.483Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Global.cs",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\data\\Global.cs",
+              "RelativeDocumentMoniker": "data\\Global.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\data\\Global.cs",
+              "RelativeToolTip": "data\\Global.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T13:03:59.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "DetalhesView.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\DetalhesView.cs",
+              "RelativeDocumentMoniker": "View\\DetalhesView.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\DetalhesView.cs [Design]",
+              "RelativeToolTip": "View\\DetalhesView.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T13:35:21.457Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "DetalhesView.cs",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\DetalhesView.cs",
+              "RelativeDocumentMoniker": "View\\DetalhesView.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\View\\DetalhesView.cs",
+              "RelativeToolTip": "View\\DetalhesView.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAqwD8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T13:36:30.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "CardProduto.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\data\\CardProduto.cs",
+              "RelativeDocumentMoniker": "data\\CardProduto.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\data\\CardProduto.cs [Design]",
+              "RelativeToolTip": "data\\CardProduto.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T14:01:21.361Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "CardProduto.cs",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\data\\CardProduto.cs",
+              "RelativeDocumentMoniker": "data\\CardProduto.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\data\\CardProduto.cs",
+              "RelativeToolTip": "data\\CardProduto.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAiwBkAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T14:02:15.719Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "CardSolicitacaoDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\Model\\CardSolicitacaoDTO.cs",
+              "RelativeDocumentMoniker": "Model\\CardSolicitacaoDTO.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\Model\\CardSolicitacaoDTO.cs",
+              "RelativeToolTip": "Model\\CardSolicitacaoDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T13:10:35.533Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Theme.cs",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\data\\Theme.cs",
+              "RelativeDocumentMoniker": "data\\Theme.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\data\\Theme.cs",
+              "RelativeToolTip": "data\\Theme.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwB0AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T13:05:17.828Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\Model\\Usuario.cs",
+              "RelativeDocumentMoniker": "Model\\Usuario.cs",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\Sessao2Desktop3\\Model\\Usuario.cs",
+              "RelativeToolTip": "Model\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T12:57:52.521Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
