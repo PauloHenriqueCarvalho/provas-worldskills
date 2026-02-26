@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TarefasMaui.View.TarefasView"
+             Title="TarefasView">
+    <Grid Padding="30" RowSpacing="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <HorizontalStackLayout
+            Grid.Row="0"
+            Spacing="50"
+            >
+
+            <Label Text="Tarefas" FontSize="30"/>
+            <Entry Placeholder="Buscar" WidthRequest="400"/>
+            <Button Text="Buscar" WidthRequest="100" Clicked="OnBuscar"/>
+            <Button Text="Adicionar Status" WidthRequest="250" Clicked="OnStatus"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Grid.Row="1" Spacing="40" HeightRequest="400">
+
+            <VerticalStackLayout  Spacing="30" >
+                <Label Text="Tarefas para mim" FontSize="25" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                <CollectionView  ItemsSource="{Binding listaTarefas}" Margin="10">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border StrokeShape="RoundRectangle 8"
+ StrokeThickness="0"
+ BackgroundColor="White"
+ Margin="0,0,0,12">
+                                <Border.Shadow>
+                                    <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.1" />
+                                </Border.Shadow>
+
+                                <Grid ColumnDefinitions="8, *">
+                                    <BoxView Grid.Column="0" 
+          BackgroundColor="{Binding Status.Cor}" 
+          WidthRequest="8" />
+
+                                    <StackLayout Grid.Column="1" Padding="15" Spacing="5">
+
+                                        <Grid ColumnDefinitions="*, Auto">
+                                            <Label Grid.Column="0" 
+                Text="{Binding Status.Nome}" 
+                TextColor="{Binding Status.Cor}" 
+                FontSize="12" 
+                FontAttributes="Bold" 
+                TextTransform="Uppercase"/>
+
+                                            <Label Grid.Column="1" 
+                Text="{Binding DataVencimento, StringFormat='{0:dd/MM/yyyy}'}" 
+                TextColor="#999" 
+                FontSize="12" />
+                                        </Grid>
+
+                                        <Label Text="{Binding Titulo}" 
+            FontAttributes="Bold" 
+            FontSize="18" 
+            TextColor="#333" />
+
+                                        <Label Text="{Binding Descricao}" 
+            TextColor="#666" 
+            FontSize="14" 
+            LineBreakMode="WordWrap" />
+
+                                        <Label Text="{Binding UsuarioRemetente.Nome, StringFormat='De: {0}'}" 
+            TextColor="#AAA" 
+            FontSize="11" 
+            Margin="0,5,0,0"
+            HorizontalOptions="End" />
+                                    </StackLayout>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </VerticalStackLayout>
+            <VerticalStackLayout  Spacing="30" >
+                <Label Text="Tarefas atribuidas" FontSize="25" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                <CollectionView  ItemsSource="{Binding listaTarefasAtribuidas}" Margin="10">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border StrokeShape="RoundRectangle 8"
+            StrokeThickness="0"
+            BackgroundColor="White"
+            Margin="0,0,0,12">
+                                <Border.Shadow>
+                                    <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.1" />
+                                </Border.Shadow>
+
+                                <Grid ColumnDefinitions="8, *">
+                                    <BoxView Grid.Column="0" 
+                     BackgroundColor="{Binding Status.Cor}" 
+                     WidthRequest="8" />
+
+                                    <StackLayout Grid.Column="1" Padding="15" Spacing="5">
+
+                                        <Grid ColumnDefinitions="*, Auto">
+                                            <Label Grid.Column="0" 
+                           Text="{Binding Status.Nome}" 
+                           TextColor="{Binding Status.Cor}" 
+                           FontSize="12" 
+                           FontAttributes="Bold" 
+                           TextTransform="Uppercase"/>
+
+                                            <Label Grid.Column="1" 
+                           Text="{Binding DataVencimento, StringFormat='{0:dd/MM/yyyy}'}" 
+                           TextColor="#999" 
+                           FontSize="12" />
+                                        </Grid>
+
+                                        <Label Text="{Binding Titulo}" 
+                       FontAttributes="Bold" 
+                       FontSize="18" 
+                       TextColor="#333" />
+
+                                        <Label Text="{Binding Descricao}" 
+                       TextColor="#666" 
+                       FontSize="14" 
+                       LineBreakMode="WordWrap" />
+
+                                        <Label Text="{Binding UsuarioRemetente.Nome, StringFormat='De: {0}'}" 
+                       TextColor="#AAA" 
+                       FontSize="11" 
+                       Margin="0,5,0,0"
+                       HorizontalOptions="End" />
+                                    </StackLayout>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+        <Button Grid.Row="2" Text="Criar tarefa" Clicked="OnCriarTarefa" WidthRequest="200"/>
+
+
+
+
+
+    </Grid>
+</ContentPage>
