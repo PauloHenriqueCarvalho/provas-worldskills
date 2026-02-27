@@ -17,6 +17,40 @@ namespace TarefasAPI.Controllers
         }
 
 
+        [HttpGet("Get/{id}")]
+        public async Task<IActionResult> GetUmaTarefasUsuario(int id)
+        {
+            var t = await _context.Tarefas.Where(x => x.Id == id)
+                .Select(x => new
+                {
+                    x.Id,
+                    x.Titulo,
+                    x.Descricao,
+                    x.DataVencimento,
+                    x.DataCadastro,
+                    Status = new
+                    {
+                        x.StatusNavigation.Id,
+                        x.StatusNavigation.Nome,
+                        x.StatusNavigation.Cor
+                    },
+                    Destinatario = new
+                    {
+                        x.UsuarioDestinatarioNavigation.Id,
+                        x.UsuarioDestinatarioNavigation.Nome
+                    },
+                    Remetente = new
+                    {
+                        x.UsuarioRemetenteNavigation.Id,
+                        x.UsuarioRemetenteNavigation.Nome
+                    }
+
+
+                }).FirstOrDefaultAsync();
+            return Ok(t);
+        }
+
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetTarefasUsuario(int id)
         {
@@ -50,6 +84,29 @@ namespace TarefasAPI.Controllers
                 .ToListAsync();
             return Ok(t);
         }
+
+
+        public class UserUpdateStatusDTO
+        {
+            public int IdTarefa { get; set; }
+            public int IdStatus { get; set; }
+
+        }
+
+
+        [HttpPut("update-status")]
+        public async Task<IActionResult> UpdateStatus([FromBody] UserUpdateStatusDTO dto)
+        {
+            var s = await _context.Tarefas.FirstOrDefaultAsync(x => x.Id == dto.IdTarefa);
+            if (s == null)
+                return BadRequest("Status não encontrado!");
+            s.Status = dto.IdStatus;
+
+            await _context.SaveChangesAsync();
+            return Ok(s);
+
+        }
+
 
         [HttpGet("Enviadas/{id}")]
         public async Task<IActionResult> GetTarefasEnviadasUsuario(int id)

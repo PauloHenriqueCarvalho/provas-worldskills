@@ -27,27 +27,6 @@
   },
   {
     "ContainingType": "TarefasAPI.Controllers.StatusController",
-    "Method": "UpdateStatus",
-    "RelativePath": "api/Status/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "TarefasAPI.Controllers.StatusController\u002BCreateStatusDTO",
-        "IsRequired": true
-      },
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "TarefasAPI.Controllers.StatusController",
     "Method": "DeleteStatus",
     "RelativePath": "api/Status/{id}",
     "HttpMethod": "DELETE",
@@ -142,6 +121,38 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TarefasAPI.Controllers.TarefasController",
+    "Method": "GetUmaTarefasUsuario",
+    "RelativePath": "api/Tarefas/Get/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TarefasAPI.Controllers.TarefasController",
+    "Method": "UpdateStatus",
+    "RelativePath": "api/Tarefas/update-status",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "TarefasAPI.Controllers.TarefasController\u002BUserUpdateStatusDTO",
         "IsRequired": true
       }
     ],

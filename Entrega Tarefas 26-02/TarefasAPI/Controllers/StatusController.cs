@@ -48,19 +48,6 @@ namespace TarefasAPI.Controllers
         }
 
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateStatus([FromBody] CreateStatusDTO dto, int id)
-        {
-            var s = await _context.Statuses.FirstOrDefaultAsync(x => x.Id == id);
-            if (s == null)
-                return BadRequest("Status não encontrado!");
-            s.Nome = dto.Nome;
-            s.Cor = dto.Cor;
-            await _context.SaveChangesAsync();
-            return Ok(s);
-
-        }
-
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteStatus(int id)
         {

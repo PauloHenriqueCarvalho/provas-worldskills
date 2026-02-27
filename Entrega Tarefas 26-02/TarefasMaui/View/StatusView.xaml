@@ -10,7 +10,7 @@
         </Grid.RowDefinitions>
         <HorizontalStackLayout Grid.Row="0" Spacing="50">
             <Label Text="Status" FontSize="30"/>
-            <Entry Placeholder="Buscar" WidthRequest="400"/>
+            <Entry Placeholder="Buscar" x:Name="txtBusca" WidthRequest="400"/>
             <Button Text="Buscar" WidthRequest="100" Clicked="OnBuscar"/>
         </HorizontalStackLayout>
         <HorizontalStackLayout Grid.Row="1" Spacing="60">
@@ -29,6 +29,9 @@
                        StrokeThickness="0"
                        BackgroundColor="{Binding Cor}"
                        Margin="0,0,0,10">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnExcluirStatusTapped" />
+                                </Border.GestureRecognizers>
                                 <Border.Shadow>
                                     <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.1" />
                                 </Border.Shadow>

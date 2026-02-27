@@ -24,9 +24,38 @@ public partial class StatusView : ContentPage
         }
     }
 
+    public async void OnExcluirStatusTapped(object sender, EventArgs e)
+    {
+        var border = sender as Border;
+        var status = border?.BindingContext as Status;
+
+        if (status == null) return;
+        bool confirmacao = await DisplayAlert("Excluir Status", $"Desejo realmente excluir o status '{status.Nome}'?", "Sim", "Não");
+        if (confirmacao)
+        {
+            try
+            {
+                await new PadraoService().DeletarStatus(status.Id);
+                await DisplayAlert("Sucesso", "Status excluido com sucesso!", "OK");
+                Carregar();
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Erro ", "Não foi possivel excluir: " + ex.Message, "OK");
+            }
+        }
+
+    }
     public async void OnBuscar(object sender, EventArgs e)
     {
-
+        var r = await new PadraoService().GetStatus();
+        r = r.Where(x => x.Nome.Contains(txtBusca.Text)).ToList();
+        if (r != null)
+        {
+            listaStatus = r;
+            BindingContext = null;
+            BindingContext = this;
+        }
     }
     public async void OnAdicionar(object sender, EventArgs e)
     {

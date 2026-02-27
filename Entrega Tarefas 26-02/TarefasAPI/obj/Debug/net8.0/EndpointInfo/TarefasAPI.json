@@ -47,7 +47,7 @@
       }
     },
     "/api/Status/{id}": {
-      "put": {
+      "delete": {
         "tags": [
           "Status"
         ],
@@ -62,34 +62,17 @@
             }
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateStatusDTO"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateStatusDTO"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateStatusDTO"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "OK"
           }
         }
-      },
-      "delete": {
+      }
+    },
+    "/api/Tarefas/Get/{id}": {
+      "get": {
         "tags": [
-          "Status"
+          "Tarefas"
         ],
         "parameters": [
           {
@@ -186,6 +169,37 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Tarefas/update-status": {
+      "put": {
+        "tags": [
+          "Tarefas"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserUpdateStatusDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserUpdateStatusDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserUpdateStatusDTO"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -436,6 +450,20 @@
           "senha": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserUpdateStatusDTO": {
+        "type": "object",
+        "properties": {
+          "idTarefa": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idStatus": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

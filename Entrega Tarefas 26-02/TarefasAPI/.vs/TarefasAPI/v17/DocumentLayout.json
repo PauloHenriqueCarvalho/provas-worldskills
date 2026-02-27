@@ -7,6 +7,18 @@
       "RelativeMoniker": "D:0:0:{1CF3705A-4D6D-4D25-A965-A331CC5778B4}|TarefasAPI.csproj|solutionrelative:controllers\\tarefascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{1CF3705A-4D6D-4D25-A965-A331CC5778B4}|TarefasAPI.csproj|c:\\users\\senai\\documents\\netbeansprojects\\tarefasapi\\controllers\\statuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CF3705A-4D6D-4D25-A965-A331CC5778B4}|TarefasAPI.csproj|solutionrelative:controllers\\statuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CF3705A-4D6D-4D25-A965-A331CC5778B4}|TarefasAPI.csproj|c:\\users\\senai\\documents\\netbeansprojects\\tarefasapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1CF3705A-4D6D-4D25-A965-A331CC5778B4}|TarefasAPI.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CF3705A-4D6D-4D25-A965-A331CC5778B4}|TarefasAPI.csproj|c:\\users\\senai\\documents\\netbeansprojects\\tarefasapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CF3705A-4D6D-4D25-A965-A331CC5778B4}|TarefasAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1CF3705A-4D6D-4D25-A965-A331CC5778B4}|TarefasAPI.csproj|c:\\users\\senai\\documents\\netbeansprojects\\tarefasapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1CF3705A-4D6D-4D25-A965-A331CC5778B4}|TarefasAPI.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -19,20 +31,12 @@
       "RelativeMoniker": "D:0:0:{1CF3705A-4D6D-4D25-A965-A331CC5778B4}|TarefasAPI.csproj|solutionrelative:models\\tarefa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1CF3705A-4D6D-4D25-A965-A331CC5778B4}|TarefasAPI.csproj|c:\\users\\senai\\documents\\netbeansprojects\\tarefasapi\\controllers\\statuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1CF3705A-4D6D-4D25-A965-A331CC5778B4}|TarefasAPI.csproj|solutionrelative:controllers\\statuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1CF3705A-4D6D-4D25-A965-A331CC5778B4}|TarefasAPI.csproj|c:\\users\\senai\\documents\\netbeansprojects\\tarefasapi\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1CF3705A-4D6D-4D25-A965-A331CC5778B4}|TarefasAPI.csproj|solutionrelative:models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1CF3705A-4D6D-4D25-A965-A331CC5778B4}|TarefasAPI.csproj|c:\\users\\senai\\documents\\netbeansprojects\\tarefasapi\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1CF3705A-4D6D-4D25-A965-A331CC5778B4}|TarefasAPI.csproj|solutionrelative:models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1CF3705A-4D6D-4D25-A965-A331CC5778B4}|TarefasAPI.csproj|c:\\users\\senai\\documents\\netbeansprojects\\tarefasapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1CF3705A-4D6D-4D25-A965-A331CC5778B4}|TarefasAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 681,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -51,6 +55,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\TarefasAPI\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\TarefasAPI\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-02-27T13:11:14.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Status.cs",
               "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\TarefasAPI\\Models\\Status.cs",
               "RelativeDocumentMoniker": "Models\\Status.cs",
@@ -58,12 +75,11 @@
               "RelativeToolTip": "Models\\Status.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T14:20:29.55Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-26T14:20:29.55Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Tarefa.cs",
               "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\TarefasAPI\\Models\\Tarefa.cs",
               "RelativeDocumentMoniker": "Models\\Tarefa.cs",
@@ -71,8 +87,7 @@
               "RelativeToolTip": "Models\\Tarefa.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T13:50:04.439Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-26T13:50:04.439Z"
             },
             {
               "$type": "Document",
@@ -82,27 +97,27 @@
               "RelativeDocumentMoniker": "Controllers\\TarefasController.cs",
               "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\TarefasAPI\\Controllers\\TarefasController.cs",
               "RelativeToolTip": "Controllers\\TarefasController.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAkwFsAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwBkAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-26T13:35:21.165Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "StatusController.cs",
               "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\TarefasAPI\\Controllers\\StatusController.cs",
               "RelativeDocumentMoniker": "Controllers\\StatusController.cs",
               "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\TarefasAPI\\Controllers\\StatusController.cs",
               "RelativeToolTip": "Controllers\\StatusController.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAmwDkAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAAcwCwAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-26T13:18:26.38Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\TarefasAPI\\Models\\Usuario.cs",
               "RelativeDocumentMoniker": "Models\\Usuario.cs",
@@ -110,12 +125,11 @@
               "RelativeToolTip": "Models\\Usuario.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T13:01:23.199Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-26T13:01:23.199Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\TarefasAPI\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
@@ -123,25 +137,24 @@
               "RelativeToolTip": "Controllers\\UserController.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T12:57:31.251Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-26T12:57:31.251Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\TarefasAPI\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\TarefasAPI\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-26T12:55:56.832Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\TarefasAPI\\Models\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Models\\AppDbContext.cs",
@@ -149,8 +162,7 @@
               "RelativeToolTip": "Models\\AppDbContext.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T12:55:54.57Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-26T12:55:54.57Z"
             }
           ]
         }

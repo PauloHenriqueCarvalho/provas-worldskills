@@ -33,16 +33,24 @@ namespace TarefasMaui
                 Senha = s,
             };
 
-            var u = await new PadraoService().Login(dto);
-            if (u == null)
+            try
             {
-                await DisplayAlert("Erro", "Login ou senha incorreto!", "OK");
-                return;
+                var u = await new PadraoService().Login(dto);
+                if (u == null)
+                {
+                    await DisplayAlert("Erro", "Login ou senha incorreto!", "OK");
+                    return;
+                }
+
+                Global.user = u;
+                await DisplayAlert("Sucesso", "Bem Vindo!", "OK");
+                await Shell.Current.GoToAsync("TarefasView");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Erro", "Erro na API: " + ex.Message, "OK");
             }
 
-            Global.user = u;
-            await DisplayAlert("Sucesso", "Bem Vindo!", "OK");
-            await Shell.Current.GoToAsync("TarefasView");
 
 
 

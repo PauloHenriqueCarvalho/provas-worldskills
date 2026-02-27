@@ -5,36 +5,90 @@ using static TarefasMaui.Services.PadraoService;
 
 namespace TarefasMaui.View;
 
+
+[QueryProperty(nameof(TarefaId), "Id")]
 public partial class AdicionarTarefaView : ContentPage
 {
+    private int _tarefaId { get; set; }
+    private Task _carregarPickersTask;
+    public int TarefaId { get => _tarefaId; set { _tarefaId = value; CarregarTarefaEditar(_tarefaId); } }
+
     public AdicionarTarefaView()
     {
         InitializeComponent();
-        Carregar();
+        _carregarPickersTask = Carregar();
     }
 
-    private async void Carregar()
+    private async void CarregarTarefaEditar(int id)
     {
-        pckStatus.ItemsSource = await new PadraoService().GetStatus();
-        pckUsuario.ItemsSource = await new PadraoService().GetUsuarios();
+        await _carregarPickersTask;
+
+        Title = "Editar Tarefa";
+        btnCadastrar.Text = "Atualizar";
+
+        var tarefa = await new PadraoService().GetTarefasUma(id);
+        if (tarefa == null) return;
+
+        txtTitulo.Text = tarefa.Titulo;
+        txtDescricao.Text = tarefa.Descricao;
+        datePicker.Date = tarefa.DataVencimento ?? DateTime.Now;
+        timePicker.Time = tarefa.DataVencimento?.TimeOfDay ?? DateTime.Now.TimeOfDay;
+
+
+        var listaStatus = pckStatus.ItemsSource as System.Collections.Generic.IEnumerable<Status>;
+        if (listaStatus != null)
+        {
+            pckStatus.SelectedItem = listaStatus.FirstOrDefault(s => s.Id == tarefa.Status.Id);
+        }
+
+        var listaUsuarios = pckUsuario.ItemsSource as System.Collections.Generic.IEnumerable<Usuarios>;
+        if (listaUsuarios != null)
+        {
+            pckUsuario.SelectedItem = listaUsuarios.FirstOrDefault(s => s.Id == tarefa.Destinatario.Id);
+        }
+    }
+
+    private async Task Carregar()
+    {
+        var status = await new PadraoService().GetStatus();
+        var usuarios = await new PadraoService().GetUsuarios();
+
+        pckStatus.ItemsSource = status;
+        pckUsuario.ItemsSource = usuarios;
     }
     public async void OnCriar(object sender, EventArgs e)
     {
         var st = pckStatus.SelectedItem as Status;
         var ut = pckUsuario.SelectedItem as Usuarios;
-        // Use DateTime.Today em vez de DateTime.Now
-        if (st == null || ut == null ||
-            string.IsNullOrWhiteSpace(txtTitulo.Text) ||
-            string.IsNullOrWhiteSpace(txtDescricao.Text))
+
+        if (st == null)
         {
-            await DisplayAlert("Erro", "Preencha todos os campos! ", "OK");
+            await DisplayAlert("Erro", "Selecione um Status válido.", "OK");
+            return;
+        }
+
+        if (ut == null)
+        {
+            await DisplayAlert("Erro", "O Destinatário selecionado é inválido (Tipo incorreto).", "OK");
+            return;
+        }
+
+        if (datePicker.Date < DateTime.Today)
+        {
+            await DisplayAlert("Erro", "A data não pode ser anterior a hoje!", "OK");
+            return;
+        }
+
+        if (datePicker.Date == DateTime.Today && timePicker.Time < DateTime.Now.TimeOfDay)
+        {
+            await DisplayAlert("Erro", "O horário selecionado já passou!", "OK");
             return;
         }
         try
         {
             var tarefa = new CreateTarefasDTO
             {
-                DataVencimento = dtpData.Date,
+                DataVencimento = datePicker.Date.Add(timePicker.Time),
                 Descricao = txtDescricao.Text,
                 Titulo = txtTitulo.Text,
                 Status = st.Id,
@@ -42,15 +96,21 @@ public partial class AdicionarTarefaView : ContentPage
                 UsuarioRemetente = Global.user.Id
             };
 
-            await new PadraoService().CadastrarTarefas(tarefa);
+            if (TarefaId == 0)
+            {
+                await new PadraoService().CadastrarTarefas(tarefa);
+            }
+            else
+            {
+                await new PadraoService().AlterarTarefa(tarefa, TarefaId);
+            }
 
-            await DisplayAlert("Sucesso", "Cadastrado com sucesso!", "OK");
-
-            await Shell.Current.GoToAsync("///TarefasView");
+            await DisplayAlert("Sucesso", "Salvo com sucesso!", "OK");
+            await Shell.Current.GoToAsync("..");
         }
         catch (Exception ex)
         {
-            await DisplayAlert("Erro", "Falha ao salvar: " + ex.Message, "OK");
+            await DisplayAlert("Erro", ex.Message, "OK");
         }
     }
 }

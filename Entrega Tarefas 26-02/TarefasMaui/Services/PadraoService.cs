@@ -16,7 +16,7 @@ namespace TarefasMaui.Services
         public PadraoService()
         {
             c = new HttpClient();
-            c.BaseAddress = new Uri("https://localhost:7229/api/");
+            c.BaseAddress = new Uri("http://10.0.2.2:5291/api/");
             c.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
         }
         public class LoginDTO
@@ -45,18 +45,60 @@ namespace TarefasMaui.Services
             return JsonConvert.DeserializeObject<Status>(json);
         }
 
+        public class UserUpdateStatusDTO
+        {
+            public int IdTarefa { get; set; }
+            public int IdStatus { get; set; }
+
+        }
+        public async Task<Tarefa> AtualizarStatusTarefa(int idTarefa, int statusId)
+        {
+            try
+            {
+                var u = JsonConvert.SerializeObject(new UserUpdateStatusDTO { IdStatus = statusId, IdTarefa = idTarefa });
+                var con = new StringContent(u, Encoding.UTF8, "application/json");
+
+                // Verifique se a URL está correta e se a API está de pé
+                var res = await c.PutAsync("Tarefas/update-status", con);
+
+                if (!res.IsSuccessStatusCode)
+                {
+                    var erro = await res.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Erro na API: {res.StatusCode} - {erro}"); // Verifique a aba 'Output' do Visual Studio
+                    return null;
+                }
+
+                var json = await res.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<Tarefa>(json);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exceção crítica: {ex.Message}");
+                return null;
+            }
+        }
+
 
 
         public async Task<Usuarios> Login(LoginDTO dto)
         {
             var u = JsonConvert.SerializeObject(dto);
             var con = new StringContent(u, Encoding.UTF8, "application/json");
-            var res = await c.PostAsync("User/Login", con);
-            if (!res.IsSuccessStatusCode)
-                return null;
+            try
+            {
+                var res = await c.PostAsync("User/Login", con);
+                if (!res.IsSuccessStatusCode)
+                    return null;
 
-            var json = await res.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<Usuarios>(json);
+                var json = await res.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<Usuarios>(json);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+                throw;
+            }
+
         }
 
         public async Task<Usuarios> CadastrarUsuario(CreateUserDTO dto)
@@ -86,7 +128,7 @@ namespace TarefasMaui.Services
 
         }
 
-        public async Task<Usuarios> CadastrarTarefas(CreateTarefasDTO dto)
+        public async Task<Tarefa> CadastrarTarefas(CreateTarefasDTO dto)
         {
             var u = JsonConvert.SerializeObject(dto);
             var con = new StringContent(u, Encoding.UTF8, "application/json");
@@ -98,7 +140,16 @@ namespace TarefasMaui.Services
                 return null;
             }
             var json = await res.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<Usuarios>(json);
+            return JsonConvert.DeserializeObject<Tarefa>(json);
+        }
+
+        public async Task AlterarTarefa(CreateTarefasDTO dto, int id)
+        {
+            var u = JsonConvert.SerializeObject(dto);
+            var con = new StringContent(u, Encoding.UTF8, "application/json");
+            var res = await c.PutAsync($"Tarefas/{id}", con);
+       
+            
         }
 
 
@@ -121,6 +172,18 @@ namespace TarefasMaui.Services
             var json = await res.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<List<Tarefa>>(json);
         }
+
+        public async Task<Tarefa> GetTarefasUma(int id)
+        {
+            var res = await c.GetAsync($"Tarefas/Get/{id}");
+            if (!res.IsSuccessStatusCode)
+                return null;
+
+            var json = await res.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<Tarefa>(json);
+        }
+
+
         public async Task<List<Status>> GetStatus()
         {
             var res = await c.GetAsync($"Status");
@@ -130,14 +193,30 @@ namespace TarefasMaui.Services
             var json = await res.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<List<Status>>(json);
         }
-        public async Task<List<Status>> GetUsuarios()
+        public async Task DeletarTarefa(int id)
+        {
+            var res = await c.DeleteAsync($"Tarefas/{id}");
+            if (!res.IsSuccessStatusCode)
+            {
+                throw new Exception("Erro ao excluir tarefa.");
+            }
+        }
+        public async Task DeletarStatus(int id)
+        {
+            var res = await c.DeleteAsync($"Status/{id}");
+            if (!res.IsSuccessStatusCode)
+            {
+                throw new Exception("Existe tarefas com esse status!");
+            }
+        }
+        public async Task<List<Usuarios>> GetUsuarios()
         {
             var res = await c.GetAsync($"User");
             if (!res.IsSuccessStatusCode)
                 return null;
 
             var json = await res.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<List<Status>>(json);
+            return JsonConvert.DeserializeObject<List<Usuarios>>(json);
         }
 
     }

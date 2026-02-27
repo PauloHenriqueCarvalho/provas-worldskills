@@ -13,6 +13,20 @@ builder.Services.AddDbContext<AppDbContext>(o =>
 {
     o.UseSqlServer("Server=localhost;Database=TarefasDB;User Id=sa;Password=1234;TrustServerCertificate=True");
 });
+
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy =>
+        {
+            policy
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+        });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -23,7 +37,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors("AllowAll");
 app.UseAuthorization();
 
 app.MapControllers();

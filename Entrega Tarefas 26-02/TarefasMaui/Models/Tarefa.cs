@@ -20,8 +20,8 @@ namespace TarefasMaui.Models
         public DateTime? DataCadastro { get; set; }
 
         public Status Status { get; set; }
-        public Usuarios UsuarioDestinatario { get; set; }
-        public Usuarios UsuarioRemetente { get; set; }
+        public Usuarios Destinatario { get; set; }
+        public Usuarios Remetente { get; set; }
 
     }
 }
