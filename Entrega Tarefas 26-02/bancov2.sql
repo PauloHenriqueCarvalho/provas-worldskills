@@ -1,3 +1,4 @@
+DROP DATABASE TarefasDB_v2
 CREATE DATABASE TarefasDB_v2;
 GO
 
@@ -60,8 +61,6 @@ CREATE TABLE Tarefa (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     BoardId INT NOT NULL,
     ColunaId INT NOT NULL,
-    UsuarioRemetenteId INT NOT NULL,
-    UsuarioDestinatarioId INT NOT NULL,
     Titulo NVARCHAR(200) NOT NULL,
     Descricao NVARCHAR(MAX) NOT NULL,
     DataVencimento DATETIME2 NULL,
@@ -82,6 +81,22 @@ CREATE TABLE Tarefa (
 
     CONSTRAINT FK_Tarefa_UsuarioDestinatario
         FOREIGN KEY (UsuarioDestinatarioId)
+        REFERENCES Usuario(Id)
+);
+
+CREATE TABLE TarefaUsuario (
+    TarefaId INT NOT NULL,
+    UsuarioId INT NOT NULL,
+    CONSTRAINT PK_TarefaUsuario
+        PRIMARY KEY (TarefaId, UsuarioId),
+
+    CONSTRAINT FK_TarefaUsuario_Tarefa
+        FOREIGN KEY (TarefaId)
+        REFERENCES Tarefa(Id)
+        ON DELETE CASCADE,
+
+    CONSTRAINT FK_TarefaUsuario_Usuario
+        FOREIGN KEY (UsuarioId)
         REFERENCES Usuario(Id)
 );
 
