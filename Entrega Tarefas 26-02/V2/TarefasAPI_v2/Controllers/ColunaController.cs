@@ -48,6 +48,31 @@ namespace TarefasAPI_v2.Controllers
             await context.SaveChangesAsync();
             return Ok();
         }
+
+
+        public class ColunaOrdemDTO
+        {
+            public int Id { get; set; }
+            public int Ordem
+            {
+                get; set;
+            }
+        }
+        [HttpPost("Ordenar")]
+        public async Task<IActionResult> OrdenarColunas([FromBody] List<ColunaOrdemDTO> dto)
+        {
+            foreach (var item in dto)
+            {
+                var c = await context.Colunas.FindAsync(item.Id);
+                if (c != null)
+                {
+                    c.Ordem = item.Ordem;
+                }
+            }
+            await context.SaveChangesAsync();
+            return Ok();
+        }
+
     }
 
 

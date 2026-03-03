@@ -85,6 +85,18 @@ namespace TarefasAPI_v2.Controllers
             return Ok(dto);
         }
 
+        public class BoardDTO
+        {
+            public string Nome { get; set; }
+            public int Id { get; set; }
+            public int QtdTarefas { get; set; }
+        }
+
+        //[HttpGet]
+        //public async Task<IActionResult> Get()
+        //{
+
+        //}
         public class AddUserBoardDTO
         {
             public int IdUsuario { get; set; }

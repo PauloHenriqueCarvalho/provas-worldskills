@@ -1,0 +1,23 @@
+# Visual Studio
+.vs/
+
+# Build
+bin/
+obj/
+
+# User files
+*.user
+*.suo
+*.cache
+
+# .NET
+*.dll
+*.exe
+*.pdb
+
+# Rider / VSCode
+.idea/
+.vscode/
+
+# Nuget
+*.nupkg

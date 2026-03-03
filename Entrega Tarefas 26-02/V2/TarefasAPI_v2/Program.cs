@@ -13,6 +13,9 @@ builder.Services.AddDbContext<AppDbContext>(o =>
 {
     o.UseSqlServer("Server=localhost;Database=TarefasDB_v2;User Id=sa;Password=1234;TrustServerCertificate=True");
 });
+
+builder.WebHost.UseUrls("http://0.0.0.0:5215");
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

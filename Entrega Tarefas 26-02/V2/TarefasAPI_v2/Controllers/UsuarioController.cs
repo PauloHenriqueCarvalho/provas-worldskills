@@ -30,6 +30,7 @@ namespace TarefasAPI_v2.Controllers
         public async Task<IActionResult> Login([FromBody] LoginDTO dto)
         {
             var u = await _context.Usuarios.FirstOrDefaultAsync(x => x.Login == dto.Login);
+            Console.WriteLine(u == null ? "Usuário não encontrado" : "Usuário encontrado");
             if (u == null)
                 return Unauthorized("Esse usuario não existe!");
 
@@ -99,7 +100,7 @@ namespace TarefasAPI_v2.Controllers
             var usuario = await _context.Usuarios.Select(u => new UsersResponseDTO
             {
                 Id = u.Id,
-                Nome = u.Nome
+                Nome = u.Login
             }).ToListAsync();
 
             return Ok(usuario);
