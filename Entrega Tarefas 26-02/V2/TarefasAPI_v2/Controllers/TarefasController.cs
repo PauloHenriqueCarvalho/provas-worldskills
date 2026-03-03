@@ -24,6 +24,7 @@ namespace TarefasAPI_v2.Controllers
             public int ColunaId { get; set; }
             public DateTime Vencimento { get; set; }
             public int UsuarioCriador { get; set; }
+            public int UsuarioDestino { get; set; }
         }
 
         [HttpGet("board/{id}")]
@@ -46,9 +47,12 @@ namespace TarefasAPI_v2.Controllers
                 DataVencimento = dto.Vencimento,
                 BoardId = dto.BoardId,
                 ColunaId = dto.ColunaId,
-                UsuarioCriadorId = dto.UsuarioCriador
+                UsuarioCriadorId = dto.UsuarioCriador,
+
             };
 
+            var u = await context.Usuarios.FindAsync(dto.UsuarioDestino);
+            tarefa.Usuarios.Add(u);
             await context.Tarefas.AddAsync(tarefa);
             await context.SaveChangesAsync();
             return Ok();

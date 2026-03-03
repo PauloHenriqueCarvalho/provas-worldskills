@@ -49,13 +49,18 @@ public partial class AdicionarTarefaView : ContentPage
         //}
     }
 
+
+
     private async Task Carregar()
     {
         var status = await new PadraoService().GetColunas();
         var usuarios = await new PadraoService().GetUsuarios();
 
+
+        var newList = usuarios.Where(x => Global.board.Usuarios.Any(y => y.Id == x.Id)).ToList();
+
         pckStatus.ItemsSource = status;
-        pckUsuario.ItemsSource = usuarios;
+        pckUsuario.ItemsSource = newList;
     }
     public async void OnCriar(object sender, EventArgs e)
     {
@@ -87,14 +92,19 @@ public partial class AdicionarTarefaView : ContentPage
         }
         try
         {
-            var tarefa = new CreateTarefasDTO
+
+
+
+            var tarefa = new CreateTarefaDTO
             {
-                DataVencimento = datePicker.Date.Add(timePicker.Time),
-                Descricao = txtDescricao.Text,
                 Titulo = txtTitulo.Text,
-                Status = st.Id,
-                UsuarioDestinatario = ut.Id,
-                UsuarioRemetente = Global.user.Id
+                Descricao = txtDescricao.Text,
+                Vencimento = datePicker.Date.Add(timePicker.Time),
+                BoardId = Global.board.Id,
+                ColunaId = st.Id,
+                UsuarioCriador = Global.user.Id,
+                UsuarioDestino = ut.Id
+
             };
 
             if (TarefaId == 0)

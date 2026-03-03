@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -162,34 +163,35 @@ namespace TarefasMaui.Services
             return JsonConvert.DeserializeObject<Usuarios>(json);
         }
 
-        public class CreateTarefasDTO
+        public class CreateTarefaDTO
         {
             public string Titulo { get; set; }
             public string Descricao { get; set; }
-            public int UsuarioRemetente { get; set; }
-            public int UsuarioDestinatario { get; set; }
-            public DateTime DataVencimento { get; set; }
-            public int Status { get; set; }
-
-
+            public int BoardId { get; set; }
+            public int ColunaId { get; set; }
+            public DateTime Vencimento { get; set; }
+            public int UsuarioCriador { get; set; }
+            public int UsuarioDestino { get; set; }
         }
 
-        public async Task<Tarefa> CadastrarTarefas(CreateTarefasDTO dto)
+
+        public async Task<CreateTarefaDTO> CadastrarTarefas(CreateTarefaDTO dto)
         {
             var u = JsonConvert.SerializeObject(dto);
             var con = new StringContent(u, Encoding.UTF8, "application/json");
             var res = await c.PostAsync("Tarefas", con);
             if (!res.IsSuccessStatusCode)
-                return null;
-            else if (res.StatusCode == System.Net.HttpStatusCode.BadRequest)
             {
+                var erroApi = await res.Content.ReadAsStringAsync();
+                Debug.WriteLine($"Erro na API: {res.StatusCode} - {erroApi}");
+
                 return null;
             }
             var json = await res.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<Tarefa>(json);
+            return JsonConvert.DeserializeObject<CreateTarefaDTO>(json);
         }
 
-        public async Task AlterarTarefa(CreateTarefasDTO dto, int id)
+        public async Task AlterarTarefa(CreateTarefaDTO dto, int id)
         {
             var u = JsonConvert.SerializeObject(dto);
             var con = new StringContent(u, Encoding.UTF8, "application/json");
