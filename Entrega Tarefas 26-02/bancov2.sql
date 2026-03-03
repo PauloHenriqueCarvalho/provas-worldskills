@@ -1,4 +1,3 @@
-DROP DATABASE TarefasDB_v2
 CREATE DATABASE TarefasDB_v2;
 GO
 
@@ -61,6 +60,7 @@ CREATE TABLE Tarefa (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     BoardId INT NOT NULL,
     ColunaId INT NOT NULL,
+    UsuarioCriadorId INT NOT NULL,
     Titulo NVARCHAR(200) NOT NULL,
     Descricao NVARCHAR(MAX) NOT NULL,
     DataVencimento DATETIME2 NULL,
@@ -73,20 +73,20 @@ CREATE TABLE Tarefa (
 
     CONSTRAINT FK_Tarefa_Coluna
         FOREIGN KEY (ColunaId)
-        REFERENCES Coluna(Id),
+        REFERENCES Coluna(Id)
+        ON DELETE NO ACTION,
 
-    CONSTRAINT FK_Tarefa_UsuarioRemetente
-        FOREIGN KEY (UsuarioRemetenteId)
-        REFERENCES Usuario(Id),
-
-    CONSTRAINT FK_Tarefa_UsuarioDestinatario
-        FOREIGN KEY (UsuarioDestinatarioId)
+    CONSTRAINT FK_Tarefa_UsuarioCriador
+        FOREIGN KEY (UsuarioCriadorId)
         REFERENCES Usuario(Id)
+        ON DELETE NO ACTION
 );
 
+-- Tabela de relacionamento N:N
 CREATE TABLE TarefaUsuario (
     TarefaId INT NOT NULL,
     UsuarioId INT NOT NULL,
+
     CONSTRAINT PK_TarefaUsuario
         PRIMARY KEY (TarefaId, UsuarioId),
 
@@ -98,8 +98,10 @@ CREATE TABLE TarefaUsuario (
     CONSTRAINT FK_TarefaUsuario_Usuario
         FOREIGN KEY (UsuarioId)
         REFERENCES Usuario(Id)
+        ON DELETE NO ACTION
 );
 
 CREATE INDEX IX_Tarefa_BoardId ON Tarefa(BoardId);
 CREATE INDEX IX_Tarefa_ColunaId ON Tarefa(ColunaId);
-CREATE INDEX IX_Tarefa_UsuarioDestinatario ON Tarefa(UsuarioDestinatarioId);
+CREATE INDEX IX_TarefaUsuario_UsuarioId ON TarefaUsuario(UsuarioId);
+

@@ -1,0 +1,99 @@
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using TarefasAPI_v2.Models;
+
+namespace TarefasAPI_v2.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class BoardController : ControllerBase
+    {
+        protected readonly AppDbContext context;
+
+        public BoardController(AppDbContext context)
+        {
+            this.context = context;
+        }
+
+        [HttpPost("User")]
+        public async Task<IActionResult> AddUserBoard([FromBody] AddUserBoardDTO dto)
+        {
+            var b = await context.Boards.FirstOrDefaultAsync(x => x.Id == dto.idBoard);
+            if (b == null) return NotFound("Esse board não existe");
+            var u = await context.Usuarios.FirstOrDefaultAsync(x => x.Id == dto.IdUsuario);
+            if (u == null) return NotFound("Esse usuario não existe");
+
+            var board = await context.Boards.Include(x => x.Usuarios).FirstOrDefaultAsync(x => x.Id == dto.idBoard);
+            if (board.Usuarios.Any(x => x.Id == dto.IdUsuario)) return BadRequest("Usuario ja esta no board!");
+            if (board.Id == dto.IdUsuario) return BadRequest("Usuario ja esta no board!");
+            board.Usuarios.Add(u);
+            await context.SaveChangesAsync();
+            return Ok("Adicionado com sucesso!");
+
+        }
+
+        [HttpGet("User/{id:int}")]
+        public async Task<IActionResult> GetBoardsUser(int id)
+        {
+            var board = await context.Boards
+                .Where(x => x.UsuarioCriadorId == id || x.Usuarios.Any(c => c.Id == id))
+                .Select(a => new
+                {
+                    a.Id,
+                    a.Nome,
+                    a.DataCadastro,
+                    UsuarioCriador = new
+                    {
+                        a.UsuarioCriador.Id,
+                        a.UsuarioCriador.Nome
+                    },
+                    Usuarios = a.Usuarios.Select(u => new
+                    {
+                        u.Id,
+                        u.Nome
+                    })
+                })
+                .ToListAsync();
+            if (!board.Any()) return NotFound("Nenhum board encontrado!");
+
+            return Ok(board);
+        }
+
+        public class CreateBoardDTO
+        {
+            public string nome { get; set; }
+            public int IdCriador { get; set; }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CriarBoard([FromBody] CreateBoardDTO dto)
+        {
+
+            var user = await context.Boards.FirstOrDefaultAsync(x => x.Nome == dto.nome && dto.IdCriador == x.UsuarioCriadorId);
+            if (user != null) return Conflict("Ja existe um board com esse nome para esse usuario!");
+            var b = new Board
+            {
+                Nome = dto.nome,
+                UsuarioCriadorId = dto.IdCriador,
+                DataCadastro = DateTime.Now
+            };
+
+
+            await context.Boards.AddAsync(b);
+            await context.SaveChangesAsync();
+            return Ok(dto);
+        }
+
+        public class AddUserBoardDTO
+        {
+            public int IdUsuario { get; set; }
+            public int idBoard { get; set; }
+        }
+
+
+
+
+
+    }
+}
