@@ -12,6 +12,7 @@ namespace TarefasMaui.View;
 public partial class TarefasView : ContentPage
 {
     public List<StatusColuna> ColunasStatus { get; set; } = new List<StatusColuna>();
+    List<Tarefa> listaVindaDaApi = new();
     public string nomeQuedro { get; set; } = Global.board.Nome;
     public TarefasView()
     {
@@ -30,20 +31,37 @@ public partial class TarefasView : ContentPage
     private async void Carregar()
     {
         var colunas = await new PadraoService().GetColunas();
-        var tarefas = await new PadraoService().GetTarefas();
-
+        listaVindaDaApi = await new PadraoService().GetTarefas();
 
         colunas ??= new List<Coluna>();
-        tarefas ??= new List<Tarefa>();
+        listaVindaDaApi ??= new List<Tarefa>();
 
+        AtualizarTela(colunas);
+    }
+    private void AtualizarTela(List<Coluna> colunas = null)
+    {
+        if (colunas == null)
+            colunas = ColunasStatus?.Select(x => x.Coluna).ToList() ?? new List<Coluna>();
 
+        var tarefasFiltradas = chkArquivadas.IsChecked
+            ? listaVindaDaApi
+            : listaVindaDaApi.Where(x => !x.Arquivada).ToList();
+
+        string termo = txtBusca.Text?.ToLower() ?? "";
+        if (!string.IsNullOrWhiteSpace(termo))
+        {
+            tarefasFiltradas = tarefasFiltradas.Where(x =>
+                (x.Titulo != null && x.Titulo.ToLower().Contains(termo)) ||
+                (x.Usuarios != null && x.Usuarios.Any(u => u.Nome.ToLower().Contains(termo)))
+            ).ToList();
+        }
 
         ColunasStatus = colunas
             .OrderBy(x => x.Ordem)
             .Select(s => new StatusColuna
             {
                 Coluna = s,
-                Tarefas = tarefas.Where(x => x.ColunaId == s.Id).ToList()
+                Tarefas = tarefasFiltradas.Where(x => x.ColunaId == s.Id).ToList()
             }).ToList();
 
         BindingContext = null;
@@ -77,7 +95,6 @@ public partial class TarefasView : ContentPage
 
         await DisplayAlert("Sucesso!", "Criado com sucesso!", "Ok");
         Carregar();
-        //await Shell.Current.GoToAsync("StatusView");
     }
     public async void OnCriarTarefa(object sender, EventArgs e)
     {
@@ -103,21 +120,7 @@ public partial class TarefasView : ContentPage
 
     public async void OnBuscar(object sender, EventArgs e)
     {
-        var colunas = await new PadraoService().GetColunas();
-        var tarefas = await new PadraoService().GetTarefas();
-
-        tarefas = tarefas.Where(x => x.Titulo.Contains(txtBusca.Text)).ToList();
-
-        ColunasStatus = colunas.Select(s => new StatusColuna
-        {
-            Coluna = s,
-            Tarefas = tarefas.Where(x => x.ColunaId == s.Id).ToList()
-        }).ToList();
-
-
-
-        BindingContext = null;
-        BindingContext = this;
+        AtualizarTela();
     }
 
 
@@ -125,16 +128,15 @@ public partial class TarefasView : ContentPage
 
     private async void OnMoverTarefaTapped(object sender, TappedEventArgs e)
     {
-        // Tenta pegar pelo BindingContext do sender diretamente
         var elemento = sender as Element;
         var tarefa = elemento?.BindingContext as Tarefa;
 
         if (tarefa == null) return;
+        if (tarefa.Arquivada) return;
 
-        // Lista apenas as colunas para o "Others"
+
         var colunas = ColunasStatus.Select(x => x.Coluna.Nome).ToList();
 
-        // Ordem: Titulo, Cancelar, Destruir (Excluir), Outros (Editar + Colunas)
         string acao = await DisplayActionSheet($"Tarefa: {tarefa.Titulo}", "Cancelar", "Excluir",
             new string[] { "Editar" }.Concat(colunas).ToArray());
 
@@ -142,6 +144,17 @@ public partial class TarefasView : ContentPage
 
         if (acao == "Excluir")
         {
+
+            if (tarefa.ColunaId == ColunasStatus.OrderBy(x => x.Coluna.Ordem).LastOrDefault()?.Coluna.Id)
+            {
+
+                await DisplayAlert("Arquivado!", "Tarefa arquivada " + tarefa.Id, "Ok");
+                //Arquivar
+                await new PadraoService().ArquivarTarefa(tarefa.Id);
+                Carregar();
+                return;
+            }
+
             bool confir = await DisplayAlert("Confirmar", $"Deseja realmente excluir a tarefa '{tarefa.Titulo}'?", "Sim", "Não");
             if (confir)
             {
@@ -149,10 +162,11 @@ public partial class TarefasView : ContentPage
                 {
                     await new PadraoService().DeletarTarefa(tarefa.Id);
 
+                    await DisplayAlert("Sucesso!", "Excluido com sucesso!", "Ok");
                 }
                 catch (Exception ex)
                 {
-                    await DisplayAlert("Sucesso!", "Erro ao excluir!", "Ok");
+                    await DisplayAlert("Erro!", "Erro ao excluir!", "Ok");
                 }
                 Carregar();
             }
@@ -165,10 +179,9 @@ public partial class TarefasView : ContentPage
         }
         else
         {
-            // Se não é cancelar, excluir ou editar, só pode ser uma coluna
             var novoStatus = ColunasStatus.FirstOrDefault(c => c.Coluna.Nome == acao)?.Coluna;
 
-            if (novoStatus != null && novoStatus.Id != tarefa.ColunaId) // Use tarefa.ColunaId (o int) para comparar
+            if (novoStatus != null && novoStatus.Id != tarefa.ColunaId)
             {
                 await new PadraoService().AtualizarStatusTarefa(tarefa.Id, novoStatus.Id);
                 Carregar();
@@ -179,15 +192,13 @@ public partial class TarefasView : ContentPage
     private async void OnAddUser(object sender, EventArgs e)
     {
         var users = await new PadraoService().GetUsuarios();
+        if (users == null) return;
+        var listaUsuariosBoard = Global.board.Usuarios ?? new List<Usuarios>();
+        var userList = users.Where(u =>
+         u.Id != Global.user.Id &&
+         !listaUsuariosBoard.Any(b => b.Id == u.Id)
+     ).ToList();
 
-        users = users.Where(x => x.Id != Global.user.Id).ToList();
-
-        var listaUsuariosBoard = Global.board.Usuarios;
-
-        var userList = users.Where(x => !listaUsuariosBoard.Any(v => v.Id == x.Id)).ToList();
-
-
-        userList = userList.Where(x => x.Id != Global.user.Id).ToList();
 
         var nomes = userList.Select(u => u.Nome).ToArray();
         if (!nomes.Any())
@@ -196,24 +207,28 @@ public partial class TarefasView : ContentPage
             return;
         }
         string escolha = await DisplayActionSheet("Convidar para o quadro", "Cancelar", null, nomes);
-        if (!string.IsNullOrEmpty(escolha))
-        {
-            var userSelecionado = userList.First(u => u.Nome == escolha);
 
+        if (string.IsNullOrEmpty(escolha) || escolha == "Cancelar")
+            return;
+
+        var userSelecionado = userList.FirstOrDefault(u => u.Nome == escolha);
+
+        if (userSelecionado != null)
+        {
             var dto = new AddUserBoardDTO
             {
                 IdUsuario = userSelecionado.Id,
                 idBoard = Global.board.Id,
             };
+
             await new PadraoService().AddUserBoard(dto);
-            await DisplayAlert("Sucesso", "Usuario adicionado com sucesso!", "Ok");
+            await DisplayAlert("Sucesso", $"{userSelecionado.Nome} adicionado!", "Ok");
 
-
-            var l = await new PadraoService().GetBoardsUsuario();
-
-            var board = l.Where(x => x.Id == Global.board.Id).FirstOrDefault();
-            Global.board = board;
-
+            var todosBoards = await new PadraoService().GetBoardsUsuario();
+            if (todosBoards != null)
+            {
+                Global.board = todosBoards.FirstOrDefault(x => x.Id == Global.board.Id);
+            }
         }
     }
 
@@ -268,6 +283,58 @@ public partial class TarefasView : ContentPage
         {
             await DisplayAlert("Erro", "Falha ao salvar ordem: " + ex.Message, "OK");
         }
+    }
+
+    private async void OnRemoveUser(object sender, EventArgs e)
+    {
+        var listaUsuariosBoard = Global.board.Usuarios.Where(x => x.Id != Global.user.Id).ToList();
+
+        if (!listaUsuariosBoard.Any())
+        {
+            await DisplayAlert("Atenção", "Não existem outros usuários neste quadro!", "Ok");
+            return;
+        }
+
+        var nomes = listaUsuariosBoard.Select(u => u.Nome).ToArray();
+
+        string escolha = await DisplayActionSheet("Remover do quadro", "Cancelar", null, nomes);
+
+        if (string.IsNullOrEmpty(escolha) || escolha == "Cancelar") return;
+
+        var userSelecionado = listaUsuariosBoard.FirstOrDefault(u => u.Nome == escolha);
+        if (userSelecionado == null) return;
+
+        var dto = new AddUserBoardDTO
+        {
+            IdUsuario = userSelecionado.Id,
+            idBoard = Global.board.Id,
+        };
+
+        try
+        {
+            await new PadraoService().RemoveUserBoard(dto);
+
+            await DisplayAlert("Sucesso", $"{userSelecionado.Nome} foi removido!", "Ok");
+
+            var boards = await new PadraoService().GetBoardsUsuario();
+            Global.board = boards.FirstOrDefault(x => x.Id == Global.board.Id);
+
+            Carregar();
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Erro", "Não foi possível remover: " + ex.Message, "Ok");
+        }
+    }
+
+    private void OnFiltroArquivadas(object sender, CheckedChangedEventArgs e)
+    {
+        AtualizarTela();
+    }
+
+    private void FiltrarExibir()
+    {
+
     }
 
 }

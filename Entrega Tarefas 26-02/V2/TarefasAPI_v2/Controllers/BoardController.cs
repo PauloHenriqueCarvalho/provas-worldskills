@@ -26,11 +26,42 @@ namespace TarefasAPI_v2.Controllers
 
             var board = await context.Boards.Include(x => x.Usuarios).FirstOrDefaultAsync(x => x.Id == dto.idBoard);
             if (board.Usuarios.Any(x => x.Id == dto.IdUsuario)) return BadRequest("Usuario ja esta no board!");
-            if (board.Id == dto.IdUsuario) return BadRequest("Usuario ja esta no board!");
             board.Usuarios.Add(u);
             await context.SaveChangesAsync();
             return Ok("Adicionado com sucesso!");
 
+        }
+
+        [HttpDelete("{idBoard}/User/{idUsuario}")]
+        public async Task<IActionResult> RemoveUserBoard(int idBoard, int idUsuario)
+        {
+            var board = await context.Boards
+                .Include(x => x.Usuarios)
+                .FirstOrDefaultAsync(x => x.Id == idBoard);
+
+            if (board == null) return NotFound("Esse board não existe");
+
+            var usuario = board.Usuarios.FirstOrDefault(x => x.Id == idUsuario);
+
+            if (usuario == null)
+            {
+                return BadRequest("O usuário não faz parte deste board ou não existe.");
+            }
+
+
+            var tarefasDoUsuario = await context.Tarefas
+              .Where(t => t.BoardId == idBoard && t.Usuarios.First().Id == idUsuario)
+              .ToListAsync();
+
+            foreach (var item in tarefasDoUsuario)
+            {
+                item.Usuarios.Clear();
+            }
+
+            board.Usuarios.Remove(usuario);
+
+            await context.SaveChangesAsync();
+            return Ok("Usuário removido e tarefas liberadas.");
         }
 
         [HttpGet("User/{id:int}")]

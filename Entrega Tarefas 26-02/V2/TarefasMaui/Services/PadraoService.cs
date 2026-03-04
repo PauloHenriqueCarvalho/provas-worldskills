@@ -90,6 +90,12 @@ namespace TarefasMaui.Services
             var res = await c.PostAsync($"Board/user", con);
 
         }
+        public async Task RemoveUserBoard(AddUserBoardDTO dto)
+        {
+
+            var res = await c.DeleteAsync($"Board/{dto.idBoard}/user/{dto.IdUsuario}");
+            Console.WriteLine(res.RequestMessage);
+        }
         public async Task<bool> UpdateName(int id, string nome)
         {
             var u = JsonConvert.SerializeObject(new { Id = id, Name = nome });
@@ -202,11 +208,13 @@ namespace TarefasMaui.Services
             return JsonConvert.DeserializeObject<CreateTarefaDTO>(json);
         }
 
-        public async Task AlterarTarefa(CreateTarefaDTO dto, int id)
+        public async Task<bool> AlterarTarefa(CreateTarefaDTO dto, int id)
         {
             var u = JsonConvert.SerializeObject(dto);
             var con = new StringContent(u, Encoding.UTF8, "application/json");
             var res = await c.PutAsync($"Tarefas/{id}", con);
+            Console.WriteLine(res.RequestMessage);
+            return res.IsSuccessStatusCode;
 
 
         }
@@ -242,7 +250,7 @@ namespace TarefasMaui.Services
 
         public async Task<Tarefa> GetTarefasUma(int id)
         {
-            var res = await c.GetAsync($"Tarefas/Get/{id}");
+            var res = await c.GetAsync($"Tarefas/{id}");
             if (!res.IsSuccessStatusCode)
                 return null;
 
@@ -284,6 +292,11 @@ namespace TarefasMaui.Services
             {
                 throw new Exception("Existe tarefas com esse status!");
             }
+        }
+        public async Task ArquivarTarefa(int id)
+        {
+            var res = await c.PutAsync($"Tarefas/arquivar/{id}", null);
+
         }
         public async Task<List<Usuarios>> GetUsuarios()
         {

@@ -22,6 +22,8 @@ public partial class Boards : ContentPage
     public async void Carregar()
     {
         var l = await new PadraoService().GetBoardsUsuario();
+        if (l == null || !l.Any()) return;
+
         BoardsList.Clear();
         foreach (var board in l)
         {

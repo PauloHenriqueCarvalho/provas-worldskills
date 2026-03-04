@@ -13,8 +13,17 @@
 
         <HorizontalStackLayout Grid.Row="0" Spacing="20" VerticalOptions="Center">
             <Label Text="Tarefas" FontSize="28" FontAttributes="Bold" VerticalOptions="Center"/>
-            <Entry Placeholder="Buscar tarefa..." x:Name="txtBusca" WidthRequest="300" VerticalOptions="Center"/>
+            <Entry Placeholder="Buscar tarefa por titulo ou nome do usuario..." x:Name="txtBusca" WidthRequest="300" VerticalOptions="Center"/>
             <Button Text="Buscar" Clicked="OnBuscar" WidthRequest="100" CornerRadius="10"/>
+            <HorizontalStackLayout Spacing="5" VerticalOptions="Center">
+                <CheckBox x:Name="chkArquivadas" 
+                  CheckedChanged="OnFiltroArquivadas" 
+                  Color="#2196F3" />
+                <Label Text="Ver arquivadas" 
+               VerticalOptions="Center" 
+               FontSize="14" 
+               TextColor="Gray"/>
+            </HorizontalStackLayout>
         </HorizontalStackLayout>
 
         <ScrollView Orientation="Horizontal" Grid.Row="1" HorizontalScrollBarVisibility="Never">
@@ -66,7 +75,7 @@
                                                         <HorizontalStackLayout Spacing="8" Margin="0,4,0,0">
                                                             <Label Text="{Binding DataVencimento, StringFormat='{0:dd/MM HH:mm}'}" FontSize="11" TextColor="#888" />
                                                             <Label Text="•" TextColor="#CCC" VerticalOptions="Center"/>
-                                                            <Label Text="{Binding Destinatario.Nome}" FontSize="11" TextColor="#888" FontAttributes="Italic" />
+                                                            <Label Text="{Binding Usuarios[0].Nome}" FontSize="11" TextColor="#888" FontAttributes="Italic" />
                                                         </HorizontalStackLayout>
                                                     </StackLayout>
                                                 </Grid>
@@ -81,10 +90,14 @@
             </HorizontalStackLayout>
         </ScrollView>
 
-        <Grid Grid.Row="2" ColumnDefinitions="*,*,*" ColumnSpacing="15" Padding="0,10">
+        <Grid Grid.Row="2" ColumnDefinitions="*,*,*,*" ColumnSpacing="15" Padding="0,10">
             <Button Grid.Column="0" Text="+ Tarefa" Clicked="OnCriarTarefa" BackgroundColor="#2196F3" TextColor="White" CornerRadius="12"/>
             <Button Grid.Column="1" Text="+ Status" Clicked="OnStatus" BackgroundColor="#607D8B" TextColor="White" CornerRadius="12"/>
             <Button Grid.Column="2" Text="+ Usuários" Clicked="OnAddUser" BackgroundColor="#4CAF50" TextColor="White" CornerRadius="12"/>
+            <Button Grid.Column="3" Text="- Usuários" Clicked="OnRemoveUser" BackgroundColor="Red" TextColor="White" CornerRadius="12"/>
         </Grid>
+
+
+
     </Grid>
 </ContentPage>

@@ -36,17 +36,17 @@ public partial class AdicionarTarefaView : ContentPage
         timePicker.Time = tarefa.DataVencimento?.TimeOfDay ?? DateTime.Now.TimeOfDay;
 
 
-        //var listaStatus = pckStatus.ItemsSource as System.Collections.Generic.IEnumerable<Coluna>;
-        //if (listaStatus != null)
-        //{
-        //    pckStatus.SelectedItem = listaStatus.FirstOrDefault(s => s.Id == tarefa.Coluna.Id);
-        //}
+        var listaStatus = pckStatus.ItemsSource as System.Collections.Generic.IEnumerable<Coluna>;
+        if (listaStatus != null)
+        {
+            pckStatus.SelectedItem = listaStatus.FirstOrDefault(s => s.Id == tarefa.ColunaId);
+        }
 
-        //var listaUsuarios = pckUsuario.ItemsSource as System.Collections.Generic.IEnumerable<Usuarios>;
-        //if (listaUsuarios != null)
-        //{
-        //    pckUsuario.SelectedItem = listaUsuarios.FirstOrDefault(s => s.Id == tarefa.Destinatario.Id);
-        //}
+        var listaUsuarios = pckUsuario.ItemsSource as System.Collections.Generic.IEnumerable<Usuarios>;
+        if (listaUsuarios != null)
+        {
+            pckUsuario.SelectedItem = listaUsuarios.FirstOrDefault(s => s.Id == tarefa.Usuarios.First().Id);
+        }
     }
 
 
@@ -58,7 +58,6 @@ public partial class AdicionarTarefaView : ContentPage
 
 
         var newList = usuarios.Where(x => Global.board.Usuarios.Any(y => y.Id == x.Id)).ToList();
-
         pckStatus.ItemsSource = status;
         pckUsuario.ItemsSource = newList;
     }
@@ -93,13 +92,22 @@ public partial class AdicionarTarefaView : ContentPage
         try
         {
 
+            var dataSelecionada = datePicker.Date;
+            var horaSelecionada = timePicker.Time;
 
+            DateTime dataCompleta = new DateTime(
+                dataSelecionada.Year,
+                dataSelecionada.Month,
+                dataSelecionada.Day,
+                horaSelecionada.Hours,
+                horaSelecionada.Minutes,
+                0);
 
             var tarefa = new CreateTarefaDTO
             {
                 Titulo = txtTitulo.Text,
                 Descricao = txtDescricao.Text,
-                Vencimento = datePicker.Date.Add(timePicker.Time),
+                Vencimento = dataCompleta,
                 BoardId = Global.board.Id,
                 ColunaId = st.Id,
                 UsuarioCriador = Global.user.Id,
@@ -110,14 +118,24 @@ public partial class AdicionarTarefaView : ContentPage
             if (TarefaId == 0)
             {
                 await new PadraoService().CadastrarTarefas(tarefa);
+                await DisplayAlert("Sucesso", "Salvo com sucesso!", "OK");
             }
             else
             {
-                await new PadraoService().AlterarTarefa(tarefa, TarefaId);
+                var t = await new PadraoService().AlterarTarefa(tarefa, TarefaId);
+                if (t)
+                {
+                    await DisplayAlert("Sucesso", "Alterado com sucesso!", "OK");
+
+                    await Shell.Current.GoToAsync("..");
+                }
+                else
+                {
+                    await DisplayAlert("Erro", "Erro ao alterar! " + TarefaId, "OK");
+
+                }
             }
 
-            await DisplayAlert("Sucesso", "Salvo com sucesso!", "OK");
-            await Shell.Current.GoToAsync("..");
         }
         catch (Exception ex)
         {

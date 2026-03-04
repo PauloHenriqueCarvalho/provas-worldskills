@@ -25,7 +25,7 @@ public partial class AppDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=localhost;Database=TarefasDb_v2;User Id=sa;Password=1234;TrustServerCertificate=True;");
+        => optionsBuilder.UseSqlServer("Server=localhost;Database=TarefasDB_v2;User id=sa;Password=1234;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -88,6 +88,9 @@ public partial class AppDbContext : DbContext
 
             entity.HasIndex(e => e.ColunaId, "IX_Tarefa_ColunaId");
 
+            entity.Property(e => e.Arquivada)
+                .HasDefaultValue(false)
+                .HasColumnName("arquivada");
             entity.Property(e => e.DataCadastro).HasDefaultValueSql("(sysdatetime())");
             entity.Property(e => e.Titulo).HasMaxLength(200);
 

@@ -21,6 +21,8 @@ public partial class Tarefa
 
     public DateTime DataCadastro { get; set; }
 
+    public bool Arquivada { get; set; }
+
     public virtual Board Board { get; set; } = null!;
 
     public virtual Coluna Coluna { get; set; } = null!;

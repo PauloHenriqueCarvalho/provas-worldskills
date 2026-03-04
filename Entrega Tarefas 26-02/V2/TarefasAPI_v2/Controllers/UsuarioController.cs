@@ -100,7 +100,7 @@ namespace TarefasAPI_v2.Controllers
             var usuario = await _context.Usuarios.Select(u => new UsersResponseDTO
             {
                 Id = u.Id,
-                Nome = u.Login
+                Nome = u.Nome
             }).ToListAsync();
 
             return Ok(usuario);

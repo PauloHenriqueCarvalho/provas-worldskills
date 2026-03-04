@@ -15,7 +15,10 @@ builder.Services.AddDbContext<AppDbContext>(o =>
 });
 
 builder.WebHost.UseUrls("http://0.0.0.0:5215");
-
+builder.Services.AddControllers().AddJsonOptions(o =>
+{
+    o.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

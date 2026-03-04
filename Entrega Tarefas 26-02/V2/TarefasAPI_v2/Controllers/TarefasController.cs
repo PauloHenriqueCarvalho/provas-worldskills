@@ -30,8 +30,9 @@ namespace TarefasAPI_v2.Controllers
         [HttpGet("board/{id}")]
         public async Task<IActionResult> GetTasksBoard(int id)
         {
-            var t = await context.Tarefas.Where(x => x.BoardId == id).ToListAsync();
-            if (!t.Any()) return NotFound("Nenhuma tarefa encontrada!");
+            var t = await context.Tarefas
+                .Include(t => t.Usuarios)
+                .Where(x => x.BoardId == id && !x.Arquivada).ToListAsync();
             return Ok(t);
         }
 
@@ -59,6 +60,15 @@ namespace TarefasAPI_v2.Controllers
 
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var l = await context.Tarefas
+                .Include(t => t.Usuarios)
+                .FirstOrDefaultAsync(x => x.Id == id);
+            if (l == null) return NotFound("Nenhuma tarefa encontrada");
+            return Ok(l);
+        }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
@@ -69,6 +79,40 @@ namespace TarefasAPI_v2.Controllers
             await context.SaveChangesAsync();
             return NoContent();
         }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> AlterarTarefa(int id, CreateTarefaDTO dto)
+        {
+            var t = await context.Tarefas
+                .Include(t => t.Usuarios)
+                .FirstOrDefaultAsync(x => x.Id == id);
+            if (t == null) return NotFound("Tarefa não encontrada");
 
+            var u = await context.Usuarios.FirstOrDefaultAsync(x => x.Id == dto.UsuarioDestino);
+            if (u == null) return NotFound("Usuario não existe");
+
+            t.Titulo = dto.Titulo;
+            t.Descricao = dto.Descricao;
+            t.ColunaId = dto.ColunaId;
+            t.Usuarios.Clear();
+            t.Usuarios.Add(u);
+            t.DataVencimento = dto.Vencimento;
+            await context.SaveChangesAsync();
+            return NoContent();
+        }
+
+
+        [HttpPut("arquivar/{id}")]
+        public async Task<IActionResult> Arquivar(int id)
+        {
+            var t = await context.Tarefas
+                .Include(t => t.Usuarios)
+                .FirstOrDefaultAsync(x => x.Id == id);
+            if (t == null) return NotFound("Tarefa não encontrada");
+
+
+            t.Arquivada = true;
+            await context.SaveChangesAsync();
+            return NoContent();
+        }
     }
 }

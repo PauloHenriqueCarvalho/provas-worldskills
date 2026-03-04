@@ -28,6 +28,7 @@ namespace TarefasMaui.Models
         public virtual Board Board { get; set; } = null!;
 
         public virtual Coluna Coluna { get; set; } = null!;
+        public bool Arquivada { get; set; }
 
         public virtual Usuarios UsuarioCriador { get; set; } = null!;
 
