@@ -32,6 +32,37 @@ namespace TarefasAPI_v2.Controllers
             public int BoardId { get; set; }
         }
 
+        public class UpdateStatusDTO
+        {
+            public int idTarefa { get; set; }
+            public int idColuna { get; set; }
+        }
+
+        [HttpPut("status")]
+        public async Task<IActionResult> AlterarStatus([FromBody] UpdateStatusDTO dto)
+        {
+            var t = await context.Tarefas.FirstOrDefaultAsync(x => x.Id == dto.idTarefa);
+            var s = await context.Colunas.FirstOrDefaultAsync(x => x.Id == dto.idColuna);
+            if (t == null) return NotFound("Tarefa não encontrada!");
+            if (s == null) return NotFound("Coluna não encontrada!");
+
+            t.Coluna = s;
+            await context.SaveChangesAsync();
+            return Ok(t);
+
+        }
+
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var t = await context.Colunas.FirstOrDefaultAsync(x => x.Id == id);
+            if (t == null) return NotFound("Coluna não encontrada!");
+            context.Colunas.Remove(t);
+            await context.SaveChangesAsync();
+            return NoContent();
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> CreateColuna(CreateColunaDTO dto)

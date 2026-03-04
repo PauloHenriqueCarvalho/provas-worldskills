@@ -59,5 +59,16 @@ namespace TarefasAPI_v2.Controllers
 
         }
 
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var t = await context.Tarefas.FirstOrDefaultAsync(x => x.Id == id);
+            if (t == null) return NotFound("Tarefa não encontrada!");
+            context.Tarefas.Remove(t);
+            await context.SaveChangesAsync();
+            return NoContent();
+        }
+
     }
 }

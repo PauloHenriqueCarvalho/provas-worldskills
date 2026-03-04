@@ -53,10 +53,23 @@
                             </Border>
 
                             <Label Grid.Row="1" Text="{Binding Nome}" TextColor="Black" FontSize="16" FontAttributes="Bold" 
-                                   VerticalOptions="Center" MaxLines="2" LineBreakMode="TailTruncation" />
+                                   VerticalOptions="Center" MaxLines="2" LineBreakMode="TailTruncation">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnEditarNome" CommandParameter="{Binding .}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
 
-                            <Label Grid.Row="2" Text="Ver tarefas" 
-                                   FontSize="12" TextColor="#1976D2" />
+                            <HorizontalStackLayout Spacing="20"  Grid.Row="2">
+                                <Label Text="Ver tarefas" 
+                                       FontSize="12" TextColor="#1976D2" />
+                                <Label Text="Excluir" 
+                                     FontSize="12" TextColor="Red">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnExcluir" CommandParameter="{Binding .}"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </HorizontalStackLayout>
+
                         </Grid>
                     </Border>
                 </DataTemplate>

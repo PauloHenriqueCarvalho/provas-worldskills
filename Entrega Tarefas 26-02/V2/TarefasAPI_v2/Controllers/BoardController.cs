@@ -66,6 +66,35 @@ namespace TarefasAPI_v2.Controllers
             public int IdCriador { get; set; }
         }
 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeletarBoard(int id)
+        {
+            var b = await context.Boards.FindAsync(id);
+            if (b == null) return NotFound("Quadro não encontrado");
+
+            context.Boards.Remove(b);
+            await context.SaveChangesAsync();
+            return NoContent();
+        }
+
+        public class UpdateNameDTO
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+        }
+        [HttpPut]
+        public async Task<IActionResult> AlterarNome(UpdateNameDTO dto)
+        {
+            var b = await context.Boards.FirstOrDefaultAsync(x => x.Id == dto.Id);
+            if (b == null) return NotFound("Board não encontrado");
+            b.Nome = dto.Name;
+
+            await context.SaveChangesAsync();
+            return Ok();
+
+
+        }
+
         [HttpPost]
         public async Task<IActionResult> CriarBoard([FromBody] CreateBoardDTO dto)
         {

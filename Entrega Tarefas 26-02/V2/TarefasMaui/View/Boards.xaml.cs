@@ -69,5 +69,43 @@ public partial class Boards : ContentPage
         }
     }
 
+    private async void OnOpcoes(object sender, EventArgs e)
+    {
+    }
 
+    private async void OnExcluir(object sender, TappedEventArgs e)
+    {
+        var b = e.Parameter as Board;
+        if (b == null) return;
+
+        bool con = await DisplayAlert("Atenção", "Deseja excluir esse quadro?", "Sim", "Nao");
+        if (con)
+        {
+            var r = await new PadraoService().ExcluirtBoard(b.Id);
+            if (r)
+                await DisplayAlert("Sucesso", "Quadro excluido com sucesso!", "OK");
+            else
+                await DisplayAlert("Erro", "Erro ao excluir!", "OK");
+            Carregar();
+            OnPropertyChanged(nameof(BoardsList));
+        }
+    }
+
+    private async void OnEditarNome(object sender, TappedEventArgs e)
+    {
+        var b = e.Parameter as Board;
+        if (b == null) return;
+
+        string novoNome = await DisplayPromptAsync("Editar board", "Digite o novo nome do quadro", "Salvar", "Cancelar", initialValue: b.Nome);
+        if (!string.IsNullOrWhiteSpace(novoNome) && novoNome != b.Nome)
+        {
+            var res = await new PadraoService().UpdateName(b.Id, novoNome);
+            if (res)
+                await DisplayAlert("Sucesso", "Nome alterado com sucesso!", "OK");
+            else
+                await DisplayAlert("Erro", "Erro ao editar nome!", "OK");
+            Carregar();
+            OnPropertyChanged(nameof(BoardsList));
+        }
+    }
 }

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TarefasMaui.View.TarefasView"
-             Title="Meu Quadro">
+             Title="{Binding nomeQuedro}">
 
     <Grid Padding="20" RowSpacing="15">
         <Grid.RowDefinitions>
@@ -37,6 +37,11 @@
                                     <HorizontalStackLayout Spacing="10">
                                         <Label Text="⠿" FontSize="22" TextColor="Gray" VerticalOptions="Center"/>
                                         <Label Text="{Binding Coluna.Nome}" FontSize="18" FontAttributes="Bold" VerticalOptions="Center"/>
+                                        <Label Text="Excluir" FontSize="12" TextColor="Red" VerticalOptions="Center">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnExluirColuna" CommandParameter="{Binding Coluna}"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
                                     </HorizontalStackLayout>
 
                                     <BoxView Grid.Column="1" WidthRequest="40" HeightRequest="4" 

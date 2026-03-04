@@ -12,6 +12,7 @@ namespace TarefasMaui.View;
 public partial class TarefasView : ContentPage
 {
     public List<StatusColuna> ColunasStatus { get; set; } = new List<StatusColuna>();
+    public string nomeQuedro { get; set; } = Global.board.Nome;
     public TarefasView()
     {
         InitializeComponent();
@@ -82,6 +83,23 @@ public partial class TarefasView : ContentPage
     {
         await Shell.Current.GoToAsync("AdicionarTarefaView");
     }
+    public async void OnExluirColuna(object sender, TappedEventArgs e)
+    {
+        var c = e.Parameter as Coluna;
+        if (c == null) return;
+
+        bool con = await DisplayAlert("Atenção", "Deseja excluir essa coluna?", "Sim", "Nao");
+        if (con)
+        {
+            var r = await new PadraoService().DeletarColuna(c.Id);
+            if (r)
+                await DisplayAlert("Sucesso", "Quadro excluido com sucesso!", "OK");
+            else
+                await DisplayAlert("Erro", "Erro ao excluir!", "OK");
+            Carregar();
+            OnPropertyChanged(nameof(ColunasStatus));
+        }
+    }
 
     public async void OnBuscar(object sender, EventArgs e)
     {
@@ -107,43 +125,50 @@ public partial class TarefasView : ContentPage
 
     private async void OnMoverTarefaTapped(object sender, TappedEventArgs e)
     {
-        var border = sender as Border;
-        var tarefa = border?.BindingContext as Tarefa;
+        // Tenta pegar pelo BindingContext do sender diretamente
+        var elemento = sender as Element;
+        var tarefa = elemento?.BindingContext as Tarefa;
 
         if (tarefa == null) return;
 
-        var listaBotoes = new List<string> { "Editar" };
-        listaBotoes.AddRange(ColunasStatus.Select(x => x.Coluna.Nome));
+        // Lista apenas as colunas para o "Others"
+        var colunas = ColunasStatus.Select(x => x.Coluna.Nome).ToList();
 
-        string acao = await DisplayActionSheet($"Tarefa: {tarefa.Titulo}", "Cancelar", "Excluir", listaBotoes.ToArray());
-        var opcoesStatus = ColunasStatus.Select(c => c.Coluna.Nome).ToArray();
+        // Ordem: Titulo, Cancelar, Destruir (Excluir), Outros (Editar + Colunas)
+        string acao = await DisplayActionSheet($"Tarefa: {tarefa.Titulo}", "Cancelar", "Excluir",
+            new string[] { "Editar" }.Concat(colunas).ToArray());
 
-        if (acao == "Cancelar" || string.IsNullOrEmpty(acao))
-        {
-            return;
-        }
-
-        if (acao == "Editar")
-        {
-            await Shell.Current.GoToAsync($"AdicionarTarefaView?Id={tarefa.Id}");
-            return;
-        }
+        if (acao == "Cancelar" || string.IsNullOrEmpty(acao)) return;
 
         if (acao == "Excluir")
         {
-            bool confir = await DisplayAlert("Confirmar", $"Deseja realmente a tarefa '{tarefa.Titulo}'?", "Sim", "Não");
+            bool confir = await DisplayAlert("Confirmar", $"Deseja realmente excluir a tarefa '{tarefa.Titulo}'?", "Sim", "Não");
             if (confir)
             {
-                await new PadraoService().DeletarTarefa(tarefa.Id);
+                try
+                {
+                    await new PadraoService().DeletarTarefa(tarefa.Id);
+
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Sucesso!", "Erro ao excluir!", "Ok");
+                }
                 Carregar();
             }
+            else
+                return;
         }
-
-        if (acao != null && acao != "Cancelar")
+        else if (acao == "Editar")
         {
+            await Shell.Current.GoToAsync($"AdicionarTarefaView?Id={tarefa.Id}");
+        }
+        else
+        {
+            // Se não é cancelar, excluir ou editar, só pode ser uma coluna
             var novoStatus = ColunasStatus.FirstOrDefault(c => c.Coluna.Nome == acao)?.Coluna;
 
-            if (novoStatus != null && novoStatus.Id != tarefa.Coluna.Id)
+            if (novoStatus != null && novoStatus.Id != tarefa.ColunaId) // Use tarefa.ColunaId (o int) para comparar
             {
                 await new PadraoService().AtualizarStatusTarefa(tarefa.Id, novoStatus.Id);
                 Carregar();

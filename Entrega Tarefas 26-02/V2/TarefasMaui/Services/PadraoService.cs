@@ -90,27 +90,38 @@ namespace TarefasMaui.Services
             var res = await c.PostAsync($"Board/user", con);
 
         }
+        public async Task<bool> UpdateName(int id, string nome)
+        {
+            var u = JsonConvert.SerializeObject(new { Id = id, Name = nome });
+            var con = new StringContent(u, Encoding.UTF8, "application/json");
+            var res = await c.PutAsync($"Board", con);
+            return res.IsSuccessStatusCode;
+        }
+        public async Task<bool> ExcluirtBoard(int id)
+        {
+            var res = await c.DeleteAsync($"Board/{id}");
+            return res.IsSuccessStatusCode;
 
+        }
         public class UserUpdateStatusDTO
         {
             public int IdTarefa { get; set; }
-            public int IdStatus { get; set; }
+            public int idColuna { get; set; }
 
         }
         public async Task<Tarefa> AtualizarStatusTarefa(int idTarefa, int statusId)
         {
             try
             {
-                var u = JsonConvert.SerializeObject(new UserUpdateStatusDTO { IdStatus = statusId, IdTarefa = idTarefa });
+                var u = JsonConvert.SerializeObject(new UserUpdateStatusDTO { idColuna = statusId, IdTarefa = idTarefa });
                 var con = new StringContent(u, Encoding.UTF8, "application/json");
 
-                // Verifique se a URL está correta e se a API está de pé
-                var res = await c.PutAsync("Tarefas/update-status", con);
+                var res = await c.PutAsync("Coluna/status", con);
 
                 if (!res.IsSuccessStatusCode)
                 {
                     var erro = await res.Content.ReadAsStringAsync();
-                    Console.WriteLine($"Erro na API: {res.StatusCode} - {erro}"); // Verifique a aba 'Output' do Visual Studio
+                    Console.WriteLine($"Erro na API: {res.StatusCode} - {erro}");
                     return null;
                 }
 
@@ -256,6 +267,15 @@ namespace TarefasMaui.Services
             {
                 throw new Exception("Erro ao excluir tarefa.");
             }
+        }
+        public async Task<bool> DeletarColuna(int id)
+        {
+            var res = await c.DeleteAsync($"coluna/{id}");
+            if (!res.IsSuccessStatusCode)
+            {
+                throw new Exception("Erro ao excluir coluna.");
+            }
+            return res.IsSuccessStatusCode;
         }
         public async Task DeletarStatus(int id)
         {
