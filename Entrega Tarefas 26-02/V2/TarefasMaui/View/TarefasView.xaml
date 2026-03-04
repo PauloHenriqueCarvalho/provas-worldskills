@@ -24,6 +24,8 @@
                FontSize="14" 
                TextColor="Gray"/>
             </HorizontalStackLayout>
+            <Button Text="Sair para sempre do Quadro" IsVisible="False" x:Name="btnSair" Clicked="OnSairQuadro"/>
+
         </HorizontalStackLayout>
 
         <ScrollView Orientation="Horizontal" Grid.Row="1" HorizontalScrollBarVisibility="Never">

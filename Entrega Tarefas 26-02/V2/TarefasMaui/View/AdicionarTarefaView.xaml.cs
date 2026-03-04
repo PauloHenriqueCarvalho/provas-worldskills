@@ -58,6 +58,11 @@ public partial class AdicionarTarefaView : ContentPage
 
 
         var newList = usuarios.Where(x => Global.board.Usuarios.Any(y => y.Id == x.Id)).ToList();
+
+        if (newList.Count == 0)
+        {
+            newList.Add(Global.user);
+        }
         pckStatus.ItemsSource = status;
         pckUsuario.ItemsSource = newList;
     }
@@ -119,6 +124,7 @@ public partial class AdicionarTarefaView : ContentPage
             {
                 await new PadraoService().CadastrarTarefas(tarefa);
                 await DisplayAlert("Sucesso", "Salvo com sucesso!", "OK");
+                await Shell.Current.GoToAsync("..");
             }
             else
             {

@@ -20,12 +20,23 @@ public partial class TarefasView : ContentPage
 
         Carregar();
 
+
+
+
     }
 
     protected override void OnAppearing()
     {
         base.OnAppearing();
         Carregar();
+        if (Global.board?.UsuarioCriador.Id == Global.user?.Id)
+        {
+            btnSair.IsVisible = true;
+        }
+        else
+        {
+            btnSair.IsVisible = false; // Sempre garanta o estado oposto
+        }
     }
 
     private async void Carregar()
@@ -337,4 +348,28 @@ public partial class TarefasView : ContentPage
 
     }
 
+    private async void OnSairQuadro(object sender, EventArgs e)
+    {
+        var usuariosBoard = Global.board.Usuarios;
+        usuariosBoard = usuariosBoard.Where(x => x.Id != Global.user.Id).ToList();
+
+
+        if (usuariosBoard.Count == 0)
+        {
+            await DisplayAlert("Erro", "Não existe outro usuario nesse board! Exclua ele para sair", "OK");
+            return;
+        }
+
+        string[] nomesuser = usuariosBoard.Select(x => x.Nome).ToArray();
+        string escolha = await DisplayActionSheet("Escolha o usuario que deseja transferir a liderança!", "Cancelar", null, nomesuser);
+
+        if (!escolha.Equals("Cancelar") && !string.IsNullOrEmpty(escolha))
+        {
+            var novoLider = usuariosBoard.FirstOrDefault(x => x.Nome == escolha);
+
+            await new PadraoService().TrocarLider(Global.board.Id, novoLider.Id);
+            await Shell.Current.GoToAsync("BoardsView");
+        }
+
+    }
 }

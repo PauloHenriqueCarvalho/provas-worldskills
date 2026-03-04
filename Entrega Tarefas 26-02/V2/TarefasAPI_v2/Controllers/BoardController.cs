@@ -64,6 +64,19 @@ namespace TarefasAPI_v2.Controllers
             return Ok("Usuário removido e tarefas liberadas.");
         }
 
+
+        [HttpPut("trocar-lider/{idBoard}/{idUsuario}")]
+        public async Task<IActionResult> TrocarLider(int idBoard, int idUsuario)
+        {
+            var board = await context.Boards.FirstOrDefaultAsync(x => x.Id == idBoard);
+            if (board == null) return NotFound("Board não encontrado!");
+
+            board.UsuarioCriadorId = idUsuario;
+            await context.SaveChangesAsync();
+            return NoContent();
+
+        }
+
         [HttpGet("User/{id:int}")]
         public async Task<IActionResult> GetBoardsUser(int id)
         {

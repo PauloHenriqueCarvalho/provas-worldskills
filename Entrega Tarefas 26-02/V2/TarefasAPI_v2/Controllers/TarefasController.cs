@@ -32,7 +32,7 @@ namespace TarefasAPI_v2.Controllers
         {
             var t = await context.Tarefas
                 .Include(t => t.Usuarios)
-                .Where(x => x.BoardId == id && !x.Arquivada).ToListAsync();
+                .Where(x => x.BoardId == id).ToListAsync();
             return Ok(t);
         }
 
@@ -96,6 +96,43 @@ namespace TarefasAPI_v2.Controllers
             t.Usuarios.Clear();
             t.Usuarios.Add(u);
             t.DataVencimento = dto.Vencimento;
+            await context.SaveChangesAsync();
+            return NoContent();
+        }
+
+
+        [HttpPut("transferir-tarefas/{origemId}/{destinoId}")]
+        public async Task<IActionResult> TransferirTarefas(int origemId, int destinoId)
+        {
+            var t = await context.Tarefas
+                .Include(t => t.Usuarios)
+                .Where(x => x.BoardId == origemId).ToListAsync();
+
+            if (!t.Any()) return NotFound("Tarefas não encontrada");
+
+
+            var colunaDestino = await context.Colunas
+                .Where(x => x.BoardId == destinoId)
+                .OrderBy(c => c.Ordem)
+                .FirstOrDefaultAsync();
+
+            if (colunaDestino == null)
+            {
+                colunaDestino = new Coluna
+                {
+                    Nome = "Backlog",
+                    BoardId = destinoId,
+                };
+                context.Colunas.Add(colunaDestino);
+                await context.SaveChangesAsync();
+            }
+
+            foreach (var i in t)
+            {
+                i.BoardId = destinoId;
+                i.ColunaId = colunaDestino.Id;
+            }
+
             await context.SaveChangesAsync();
             return NoContent();
         }

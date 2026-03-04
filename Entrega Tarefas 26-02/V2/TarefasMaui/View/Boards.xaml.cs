@@ -75,13 +75,66 @@ public partial class Boards : ContentPage
     {
     }
 
+    private async Task ProcessarTransferencia(Board b)
+    {
+        var boardsUsuario = await new PadraoService().GetBoardsUsuario();
+
+
+        var destino = boardsUsuario.Where(x => x.Id != b.Id).ToList();
+
+        string[] nomesBoards = destino.Select(x => x.Nome).ToArray();
+
+        string escolha = await DisplayActionSheet("Escolha o quadro de destino:", "Cancelar", null, nomesBoards);
+        if (escolha != "Cancelar" && !string.IsNullOrEmpty(escolha))
+        {
+            var boardDestino = destino.FirstOrDefault(x => x.Nome == escolha);
+
+            await new PadraoService().TransferirTarefas(b.Id, boardDestino.Id);
+            await new PadraoService().ExcluirtBoard(b.Id);
+        }
+
+    }
+
     private async void OnExcluir(object sender, TappedEventArgs e)
     {
         var b = e.Parameter as Board;
         if (b == null) return;
+        Global.board = b;
+        var tarefasQuadro = await new PadraoService().GetTarefas();
 
-        bool con = await DisplayAlert("Atenção", "Deseja excluir esse quadro?", "Sim", "Nao");
-        if (con)
+        if (tarefasQuadro.Count == 0)
+        {
+            bool con = await DisplayAlert("Atenção", "Deseja excluir esse quadro?", "Sim", "Nao");
+            if (con)
+            {
+                var r = await new PadraoService().ExcluirtBoard(b.Id);
+                if (r)
+                    await DisplayAlert("Sucesso", "Quadro excluido com sucesso!", "OK");
+                else
+                    await DisplayAlert("Erro", "Erro ao excluir!", "OK");
+                Carregar();
+                OnPropertyChanged(nameof(BoardsList));
+            }
+            return;
+        }
+        var boardsUsuario = await new PadraoService().GetBoardsUsuario();
+        if (boardsUsuario.Count == 1)
+        {
+            await DisplayAlert("Erro", "Impossivel excluir esse board com tarefas pendentes! Nenhum outro board disponivel", "OK");
+            return;
+        }
+
+        var destino = boardsUsuario.Where(x => x.Id != b.Id).ToList();
+
+        if (destino.Count == 0)
+        {
+            await DisplayAlert("Erro", "Impossivel excluir esse board com tarefas pendentes! Nenhum outro board disponivel", "OK");
+            return;
+        }
+
+
+        string action = await DisplayActionSheet($"O quadro '{b.Nome}' tem {tarefasQuadro.Count} tarefas. O que deseja fazer?", "Cancelar", null, "Excluir tudo", "Transferir tarefas para outro quadro");
+        if (action.Equals("Excluir tudo"))
         {
             var r = await new PadraoService().ExcluirtBoard(b.Id);
             if (r)
@@ -91,6 +144,15 @@ public partial class Boards : ContentPage
             Carregar();
             OnPropertyChanged(nameof(BoardsList));
         }
+        else if (action.Equals("Transferir tarefas para outro quadro"))
+        {
+            //Transferir para outro quadro
+            await ProcessarTransferencia(b);
+            Carregar();
+            OnPropertyChanged(nameof(BoardsList));
+        }
+
+
     }
 
     private async void OnEditarNome(object sender, TappedEventArgs e)

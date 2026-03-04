@@ -59,6 +59,12 @@ namespace TarefasMaui.Services
 
 
         }
+        public async Task TransferirTarefas(int idOrigem, int idDestino)
+        {
+            await c.PutAsync($"Tarefas/transferir-tarefas/{idOrigem}/{idDestino}", null);
+
+
+        }
 
         public async Task<bool> AtualizarOrdensColunas(List<StatusColuna> dto)
         {
@@ -90,6 +96,12 @@ namespace TarefasMaui.Services
             var res = await c.PostAsync($"Board/user", con);
 
         }
+        public async Task TrocarLider(int idBoard, int idUsuario)
+        {
+            await c.PutAsync($"Board/trocar-lider/{idBoard}/{idUsuario}", null);
+
+        }
+
         public async Task RemoveUserBoard(AddUserBoardDTO dto)
         {
 
