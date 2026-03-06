@@ -3,33 +3,38 @@ using TarefasAPI_v2.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// 1. Configuração de Banco: Prioriza Variável de Ambiente (Render), se não acha no appsettings.json
+var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING")
+                       ?? builder.Configuration.GetConnectionString("DefaultConnection");
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(o =>
 {
-    o.UseSqlServer("Server=localhost;Database=TarefasDB_v2;User Id=sa;Password=1234;TrustServerCertificate=True");
+    o.UseSqlServer(connectionString);
 });
 
-builder.WebHost.UseUrls("http://0.0.0.0:5215");
+// 2. Unificado a configuração de Controllers e JSON
 builder.Services.AddControllers().AddJsonOptions(o =>
 {
     o.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
 });
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+// 3. Aplica migrações automaticamente ao iniciar (Ideal para subir no Render)
+using (var scope = app.Services.CreateScope())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate();
 }
 
-app.UseAuthorization();
+// 4. Swagger sempre disponível para testes
+app.UseSwagger();
+app.UseSwaggerUI();
 
+app.UseAuthorization();
 app.MapControllers();
 
 app.Run();

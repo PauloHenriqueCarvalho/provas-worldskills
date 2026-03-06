@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 x:Class="Prova3_Mobile_MAUI.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+                Padding="30,0"
+                Spacing="25">
+            <Image
+                    Source="logo.png"
+                    HeightRequest="80"
+                    Aspect="AspectFit"/>
+            <Label
+                    Text="Login"
+                    FontSize="25"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"/>
+            <VerticalStackLayout Spacing="10">
+                <Entry Placeholder="CPF" x:Name="txtCpf" WidthRequest="400" HorizontalOptions="Center"/>
+                <HorizontalStackLayout Spacing="10"  HorizontalOptions="Center">
+                    <Entry IsPassword="True" Placeholder="Senha" x:Name="txtSenha" WidthRequest="320" HorizontalOptions="Center"/>
+                    <Button Text="Mostrar senha"  WidthRequest="50" BackgroundColor="#FA2408"/>
+                </HorizontalStackLayout>
+                <Button Text="ENTRAR" Clicked="OnEntrar" BackgroundColor="#FA2408" WidthRequest="400" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+
+            <Button Text="Não tem conta? Cadastre aqui" Clicked="OnCadastrar" BackgroundColor="#FFCC00" WidthRequest="400" HorizontalOptions="Center"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

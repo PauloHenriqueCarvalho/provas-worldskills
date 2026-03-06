@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Prova3_Mobile_MAUI.View.LoginResponsavelView"
+             Title="LoginResponsavelView">
+    <VerticalStackLayout Spacing="20" Padding="20">
+        <Button 
+            Text="Sair"
+            BackgroundColor="Red"
+            HorizontalOptions="End" />
+        <Image Source="logo.png"
+               Aspect="AspectFit"
+               WidthRequest="300"
+               HorizontalOptions="Center"/>
+        <Label HorizontalOptions="Center"  Text="{Binding Nome}" FontSize="25"/>
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+            <Label Text="Idoso" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Picker ItemsSource="{Binding Idosos}" ItemDisplayBinding="{Binding Nome}" SelectedIndexChanged="OnUsuarioSelecionado" SelectedIndex="0" HorizontalOptions="Center" WidthRequest="200"/>
+        </HorizontalStackLayout>
+        <VerticalStackLayout Spacing="80">
+            <Button Text="Agendar Consultas" BackgroundColor="#FA2408" WidthRequest="500" HorizontalOptions="Center"/>
+            <Button Text="Consultar Medicamentos" BackgroundColor="#FA2408" WidthRequest="500" HorizontalOptions="Center"/>
+
+        </VerticalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>

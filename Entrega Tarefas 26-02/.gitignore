@@ -1,23 +1,31 @@
-# Visual Studio
-.vs/
-
-# Build
+# .NET
 bin/
 obj/
-
-# User files
 *.user
 *.suo
 *.cache
-
-# .NET
 *.dll
 *.exe
 *.pdb
-
-# Rider / VSCode
+.vs/
 .idea/
 .vscode/
 
-# Nuget
-*.nupkg
+# Ignorar Segredos e Configurações de Ambiente
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+# Logs e Arquivos temporários
+*.log
+*.tmp
+*.bak
+
+# Arquivos de Sistema (OS)
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Deployment
+_PublishedWebsites/
+publish/
