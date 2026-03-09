@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TarefasMauiv2.View.BoardsView"
+             Title="BoardsView">
+    <VerticalStackLayout Padding="30" Spacing="20">
+        <Label Text="Bem Vindo" FontSize="15" TextColor="Black" HorizontalOptions="Start"/>
+        <Label Text="Escolha um Board" FontSize="27" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Start"/>
+        <Button Clicked="OnAdd" Text="+ Novo Board" TextColor="Black" HeightRequest="100" BackgroundColor="Transparent" BorderColor="Black" HorizontalOptions="Fill"/>
+        <CollectionView ItemsSource="{Binding Boards}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2"
+                                 HorizontalItemSpacing="12" VerticalItemSpacing="12"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Border Padding="30" StrokeShape="RoundRectangle 14" Background="White" StrokeThickness="0.5" HeightRequest="150">
+                            <VerticalStackLayout Spacing="40">
+                                <Label Text="{Binding Nome}" FontSize="16">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnEditarNome" CommandParameter="{Binding .}"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <HorizontalStackLayout Spacing="40">
+                                    <Label Text="Ver tarefas" TextColor="MediumBlue" />
+                                    <Label Text="Excluir" TextColor="Red">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnExcluir" CommandParameter="{Binding .}"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+
+                                </HorizontalStackLayout>
+
+
+                            </VerticalStackLayout>
+
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>

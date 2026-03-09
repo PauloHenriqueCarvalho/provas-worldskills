@@ -1,0 +1,182 @@
+[
+  {
+    "ContainingType": "TarefaAPI_v2.Controllers.BoardController",
+    "Method": "CreateBoard",
+    "RelativePath": "api/Board",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "TarefaAPI_v2.DTOs.CreateBoardDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TarefaAPI_v2.Controllers.BoardController",
+    "Method": "GetBoard",
+    "RelativePath": "api/Board/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TarefaAPI_v2.Controllers.BoardController",
+    "Method": "DeleteBoard",
+    "RelativePath": "api/Board/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TarefaAPI_v2.Controllers.BoardController",
+    "Method": "UpdateNome",
+    "RelativePath": "api/Board/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "TarefaAPI_v2.DTOs.CreateBoardDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TarefaAPI_v2.Controllers.ColunasController",
+    "Method": "CreateColunas",
+    "RelativePath": "api/Colunas",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "TarefaAPI_v2.DTOs.CreateColunaDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TarefaAPI_v2.Controllers.TarefasController",
+    "Method": "CreateTarefa",
+    "RelativePath": "api/Tarefas",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "TarefaAPI_v2.DTOs.CreateTarefaDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TarefaAPI_v2.Controllers.TarefasController",
+    "Method": "GetTarefas",
+    "RelativePath": "api/Tarefas/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TarefaAPI_v2.Controllers.TarefasController",
+    "Method": "PutTransferirTarefas",
+    "RelativePath": "api/Tarefas/tranferir-tarefas/{idOrigem}/{idDestino}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idOrigem",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "idDestino",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TarefaAPI_v2.Controllers.UsuarioController",
+    "Method": "CreateUsuario",
+    "RelativePath": "api/Usuario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "TarefaAPI_v2.DTOs.CreateUsuarioDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TarefaAPI_v2.Controllers.UsuarioController",
+    "Method": "GetUsuarios",
+    "RelativePath": "api/Usuario",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TarefaAPI_v2.Controllers.UsuarioController",
+    "Method": "Login",
+    "RelativePath": "api/Usuario/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "TarefaAPI_v2.DTOs.LoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
