@@ -9,6 +9,7 @@ namespace TarefasMauiv2.View;
 public partial class BoardsView : ContentPage
 {
     public ObservableCollection<Board> Boards { get; set; }
+    public string BemVindo { get; set; } = "Bem Vindo, " + Global.user.Nome;
 
     public BoardsView()
     {
@@ -23,9 +24,24 @@ public partial class BoardsView : ContentPage
         BindingContext = null;
         BindingContext = this;
     }
-    private void OnAdd(object sender, EventArgs e)
+    private async void OnAdd(object sender, EventArgs e)
     {
+        var nome = await DisplayPromptAsync("Novo board", "Digite o nome do quadro", "Salvar", "Cancelar");
+        if (string.IsNullOrEmpty(nome)) return;
 
+        var r = await new PadraoService().Post<Board>("Board", new CreateBoardDTO { IdUsuario = Global.user.Id, Nome = nome });
+        if (r != null)
+        {
+            await DisplayAlert("Sucesso", "Cadastrado com sucesso!", "OK");
+
+        }
+        else
+        {
+            await DisplayAlert("Erro", "Ja existe um board com esse nome!", "OK");
+
+        }
+        Carregar();
+        OnPropertyChanged(nameof(Boards));
     }
 
     private async void OnExcluir(object sender, TappedEventArgs e)
@@ -44,6 +60,7 @@ public partial class BoardsView : ContentPage
                 await DisplayAlert("Sucesso", "Quadro excluido com sucesso!", "Ok");
                 Carregar();
                 OnPropertyChanged(nameof(Boards));
+                return;
             }
             return;
         }
@@ -70,7 +87,7 @@ public partial class BoardsView : ContentPage
             OnPropertyChanged(nameof(Boards));
 
         }
-        else if (action.Equals("Transferir tarefas para outro quadro"))
+        else if (action.Equals("Transferir para outro quadro"))
         {
             await Tranferir(b);
             Carregar();
@@ -104,22 +121,36 @@ public partial class BoardsView : ContentPage
     {
         var b = e.Parameter as Board;
         if (b == null) return;
-        string novoNome = await DisplayPromptAsync("Editar board", "Digite o novo nome do quadro", "Salvar", "Cancelar", initialValue: b.Nome);
-        {
-            var res = await new PadraoService().Put<Board>($"Board/{b.Id}", new CreateBoardDTO { Nome = novoNome });
-            if (res != null)
-            {
-                await DisplayAlert("Sucesso", "Nome alterado com sucesso!", "OK");
-            }
-            else
-            {
-                await DisplayAlert("Erro", "Erro ao editar nome!", "OK");
 
-            }
+        string novoNome = await DisplayPromptAsync(
+            "Editar board",
+            "Digite o novo nome do quadro",
+            "Salvar",
+            "Cancelar",
+            initialValue: b.Nome
+        );
 
-            Carregar();
-            OnPropertyChanged(nameof(Boards));
-        }
+        if (string.IsNullOrEmpty(novoNome)) return;
+        Console.WriteLine("Nome: " + novoNome);
+        await new PadraoService().Put<Board>(
+           $"Board/{b.Id}",
+           new CreateBoardDTO { Nome = novoNome }
+       );
 
+
+        await DisplayAlert("Sucesso", "Nome alterado com sucesso!", "OK");
+
+
+        Carregar();
+        OnPropertyChanged(nameof(Boards));
+    }
+
+    private async void OnVerTarefas(object sender, TappedEventArgs e)
+    {
+        var b = e.Parameter as Board;
+        if (b == null) return;
+
+        Global.board = b;
+        await Shell.Current.GoToAsync($"TarefasView");
     }
 }

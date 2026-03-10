@@ -62,6 +62,12 @@ namespace TarefaAPI_v2.Controllers
             return Ok(u);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetUsuariosBoard(int id)
+        {
+            var u = await context.Usuarios.Where(x => x.Boards.Any(c => c.Id == id)).ToListAsync();
+            return Ok(u);
+        }
 
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Senai\\Documents\\NetBeansProjects\\TarefasMauiv2\\TarefasMauiv2.csproj": {}
+    "C:\\Users\\Senai\\Music\\Entrega\\provas-worldskills\\Entrega Tarefa 09-03\\TarefasMauiv2\\TarefasMauiv2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Senai\\Documents\\NetBeansProjects\\TarefasMauiv2\\TarefasMauiv2.csproj": {
+    "C:\\Users\\Senai\\Music\\Entrega\\provas-worldskills\\Entrega Tarefa 09-03\\TarefasMauiv2\\TarefasMauiv2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\TarefasMauiv2\\TarefasMauiv2.csproj",
+        "projectUniqueName": "C:\\Users\\Senai\\Music\\Entrega\\provas-worldskills\\Entrega Tarefa 09-03\\TarefasMauiv2\\TarefasMauiv2.csproj",
         "projectName": "TarefasMauiv2",
-        "projectPath": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\TarefasMauiv2\\TarefasMauiv2.csproj",
+        "projectPath": "C:\\Users\\Senai\\Music\\Entrega\\provas-worldskills\\Entrega Tarefa 09-03\\TarefasMauiv2\\TarefasMauiv2.csproj",
         "packagesPath": "C:\\Users\\Senai\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\TarefasMauiv2\\obj\\",
+        "outputPath": "C:\\Users\\Senai\\Music\\Entrega\\provas-worldskills\\Entrega Tarefa 09-03\\TarefasMauiv2\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [

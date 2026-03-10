@@ -4,7 +4,7 @@
              x:Class="TarefasMauiv2.View.BoardsView"
              Title="BoardsView">
     <VerticalStackLayout Padding="30" Spacing="20">
-        <Label Text="Bem Vindo" FontSize="15" TextColor="Black" HorizontalOptions="Start"/>
+        <Label Text="{Binding BemVindo}" FontSize="15" TextColor="Black" HorizontalOptions="Start"/>
         <Label Text="Escolha um Board" FontSize="27" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Start"/>
         <Button Clicked="OnAdd" Text="+ Novo Board" TextColor="Black" HeightRequest="100" BackgroundColor="Transparent" BorderColor="Black" HorizontalOptions="Fill"/>
         <CollectionView ItemsSource="{Binding Boards}">
@@ -16,6 +16,9 @@
                 <DataTemplate>
                     <Grid>
                         <Border Padding="30" StrokeShape="RoundRectangle 14" Background="White" StrokeThickness="0.5" HeightRequest="150">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnVerTarefas" CommandParameter="{Binding .}"/>
+                            </Border.GestureRecognizers>
                             <VerticalStackLayout Spacing="40">
                                 <Label Text="{Binding Nome}" FontSize="16">
                                     <Label.GestureRecognizers>

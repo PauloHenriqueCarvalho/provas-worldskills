@@ -69,6 +69,48 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "TarefaAPI_v2.Controllers.BoardController",
+    "Method": "AdicionaUsuario",
+    "RelativePath": "api/Board/adicionar-usuario/{idBoard}/{idUsuario}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idBoard",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "idUsuario",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TarefaAPI_v2.Controllers.BoardController",
+    "Method": "removerUsuario",
+    "RelativePath": "api/Board/remover-usuario/{idBoard}/{idUsuario}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idBoard",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "idUsuario",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TarefaAPI_v2.Controllers.ColunasController",
     "Method": "CreateColunas",
     "RelativePath": "api/Colunas",
@@ -79,6 +121,54 @@
       {
         "Name": "dto",
         "Type": "TarefaAPI_v2.DTOs.CreateColunaDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TarefaAPI_v2.Controllers.ColunasController",
+    "Method": "GetColunasTarefas",
+    "RelativePath": "api/Colunas/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TarefaAPI_v2.Controllers.ColunasController",
+    "Method": "Delete",
+    "RelativePath": "api/Colunas/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TarefaAPI_v2.Controllers.ColunasController",
+    "Method": "OrdenarColunas",
+    "RelativePath": "api/Colunas/Ordenar",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "System.Collections.Generic.List\u00601[[TarefaAPI_v2.Controllers.ColunasController\u002BColunaOrdemDTO, TarefaAPI v2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
       }
     ],
@@ -110,6 +200,27 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TarefaAPI_v2.Controllers.TarefasController",
+    "Method": "MoverTarefa",
+    "RelativePath": "api/Tarefas/mover/{idTarefa}/{idDestino}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idTarefa",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "idDestino",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -161,6 +272,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TarefaAPI_v2.Controllers.UsuarioController",
+    "Method": "GetUsuariosBoard",
+    "RelativePath": "api/Usuario/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

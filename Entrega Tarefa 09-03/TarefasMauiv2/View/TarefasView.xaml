@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TarefasMauiv2.View.TarefasView"
+             Title="TarefasView">
+    <VerticalStackLayout Padding="20">
+        <HorizontalStackLayout Spacing="10" Padding="20">
+            <Entry Placeholder="Buscar por titulo ou usuario..." WidthRequest="250" x:Name="txtbuscar"/>
+            <Button Clicked="OnBuscar" Text="Buscar" WidthRequest="80"/>
+            <Button Clicked="OnSair" Text="Sair do quadro" WidthRequest="150"/>
+            <CheckBox x:Name="chkArquivada"/>
+            <Label Text="Arquivadas" VerticalOptions="Center" FontSize="18"/>
+        </HorizontalStackLayout>
+        <ScrollView  Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+            <HorizontalStackLayout  BindableLayout.ItemsSource="{Binding Colunas}"
+                                    Spacing="12">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Border WidthRequest="250" StrokeShape="RoundRectangle 12" Padding="10">
+                            <VerticalStackLayout Spacing="7">
+                                <Grid ColumnDefinitions="*,Auto"
+                                      Padding="4,2"
+                                      BackgroundColor="Transparent">
+                                    <Grid.GestureRecognizers>
+                                        <DragGestureRecognizer CanDrag="True" DragStarting="OnColunaDragStarting"/>
+                                        <DropGestureRecognizer AllowDrop="True" Drop="OnColunaDrop"/>
+                                    </Grid.GestureRecognizers>
+                                    <HorizontalStackLayout Spacing="18">
+                                        <Label Text="::" FontSize="20" FontAttributes="Bold" TextColor="Gray" VerticalOptions="Center"/>
+                                        <Label Text="{Binding Coluna.Nome}" FontSize="15" FontAttributes="Bold" VerticalOptions="Center"/>
+                                        <Label Text="X" FontSize="22" TextColor="Red" >
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="onExcluirColuna" CommandParameter="{Binding Coluna}"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                    </HorizontalStackLayout>
+
+                                </Grid>
+
+                                <CollectionView ItemsSource="{Binding Tarefas}" SelectionMode="None">
+                                    <CollectionView.ItemsLayout>
+                                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="8"/>
+                                    </CollectionView.ItemsLayout>
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Stroke="#D1D1D1" StrokeShape="RoundRectangle 12">
+                                                <Border.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="OnMoverTarefa" CommandParameter="{Binding .}"/>
+                                                </Border.GestureRecognizers>
+                                                <VerticalStackLayout Spacing="8" Padding="20">
+                                                    <Label Text="{Binding Titulo}" FontAttributes="Bold" FontSize="18"/>
+                                                    <Label Text="{Binding Descricao}" FontAttributes="Italic" LineBreakMode="TailTruncation" FontSize="12"/>
+                                                    <HorizontalStackLayout Spacing="6">
+                                                        <Label Text="{Binding DataVencimento}"  FontSize="11" />
+                                                        <Label Text="{Binding Usuario[0].Nome}" FontSize="11" />
+
+                                                    </HorizontalStackLayout>
+                                                </VerticalStackLayout>
+                                            </Border>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </HorizontalStackLayout>
+        </ScrollView>
+        <Grid Padding="20" VerticalOptions="End"  ColumnDefinitions="*,*,*,*" ColumnSpacing="10" >
+            <Button Grid.Column="0" Clicked="OnAddTarefa" BackgroundColor="#FFCC00"  Text="+ Tarefas" />
+            <Button Grid.Column="1" Clicked="OnAddColuna" BackgroundColor="#FFCC00" Text="+ Colunas" />
+            <Button Grid.Column="2" Clicked="onAddUsuario" BackgroundColor="#FFCC00" Text="+ Usuarios" />
+            <Button Grid.Column="3" Clicked="OnRemoveUsuario" Text="- Usuarios" />
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

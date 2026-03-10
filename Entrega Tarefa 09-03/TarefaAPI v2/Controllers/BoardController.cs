@@ -31,9 +31,9 @@ namespace TarefaAPI_v2.Controllers
                 Nome = dto.Nome,
                 UsuarioCriadorId = dto.IdUsuario,
             });
-
             await context.SaveChangesAsync();
-            return Created();
+            u = await context.Boards.FirstOrDefaultAsync(x => x.Nome == dto.Nome && x.UsuarioCriadorId == dto.IdUsuario);
+            return Ok(u);
         }
 
         [HttpGet("{id}")]
@@ -47,7 +47,7 @@ namespace TarefaAPI_v2.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBoard(int id)
         {
-            var r = await context.Boards.FirstOrDefaultAsync(x => x.UsuarioCriadorId == id);
+            var r = await context.Boards.FirstOrDefaultAsync(x => x.Id == id);
             context.Boards.Remove(r);
             await context.SaveChangesAsync();
             return Ok();
@@ -57,8 +57,48 @@ namespace TarefaAPI_v2.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateNome(int id, [FromBody] CreateBoardDTO dto)
         {
-            var r = await context.Boards.FirstOrDefaultAsync(x => x.UsuarioCriadorId == id);
+            var r = await context.Boards.FirstOrDefaultAsync(x => x.Id == id);
+            if (r == null)
+                return BadRequest("Board não existe");
             r.Nome = dto.Nome;
+            await context.SaveChangesAsync();
+            return Ok();
+
+        }
+
+        [HttpPut("adicionar-usuario/{idBoard}/{idUsuario}")]
+        public async Task<IActionResult> AdicionaUsuario(int idBoard, int idUsuario)
+        {
+            var r = await context.Boards.FirstOrDefaultAsync(x => x.Id == idBoard);
+            if (r == null)
+                return BadRequest("Board não existe");
+
+            var u = await context.Usuarios.FirstOrDefaultAsync(x => x.Id == idUsuario);
+            if (u == null)
+                return BadRequest("Esse usuario não existe");
+
+            r.Usuarios.Add(u);
+
+            await context.SaveChangesAsync();
+            return Ok();
+
+        }
+
+        [HttpPut("remover-usuario/{idBoard}/{idUsuario}")]
+        public async Task<IActionResult> removerUsuario(int idBoard, int idUsuario)
+        {
+            var r = await context.Boards
+                .Include(x => x.Usuarios)
+                .FirstOrDefaultAsync(x => x.Id == idBoard);
+            if (r == null)
+                return BadRequest("Board não existe");
+
+            var u = await context.Usuarios.FirstOrDefaultAsync(x => x.Id == idUsuario);
+            if (u == null)
+                return BadRequest("Esse usuario não existe");
+
+            r.Usuarios.Remove(u);
+
             await context.SaveChangesAsync();
             return Ok();
 

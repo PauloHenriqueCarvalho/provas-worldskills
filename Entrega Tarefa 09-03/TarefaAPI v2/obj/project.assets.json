@@ -4481,11 +4481,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\TarefaAPI v2\\TarefaAPI v2.csproj",
+      "projectUniqueName": "C:\\Users\\Senai\\Music\\Entrega\\provas-worldskills\\Entrega Tarefa 09-03\\TarefaAPI v2\\TarefaAPI v2.csproj",
       "projectName": "TarefaAPI v2",
-      "projectPath": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\TarefaAPI v2\\TarefaAPI v2.csproj",
+      "projectPath": "C:\\Users\\Senai\\Music\\Entrega\\provas-worldskills\\Entrega Tarefa 09-03\\TarefaAPI v2\\TarefaAPI v2.csproj",
       "packagesPath": "C:\\Users\\Senai\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\TarefaAPI v2\\obj\\",
+      "outputPath": "C:\\Users\\Senai\\Music\\Entrega\\provas-worldskills\\Entrega Tarefa 09-03\\TarefaAPI v2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

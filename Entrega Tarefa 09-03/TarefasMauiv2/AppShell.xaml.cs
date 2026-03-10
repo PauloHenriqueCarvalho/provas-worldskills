@@ -8,6 +8,8 @@ namespace TarefasMauiv2
         {
             InitializeComponent();
             Routing.RegisterRoute("BoardsView", typeof(BoardsView));
+            Routing.RegisterRoute("TarefasView", typeof(TarefasView));
+            Routing.RegisterRoute("AddTarefaView", typeof(AddTarefaView));
         }
     }
 }

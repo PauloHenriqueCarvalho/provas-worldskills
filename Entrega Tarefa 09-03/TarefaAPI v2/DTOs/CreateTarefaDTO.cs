@@ -8,6 +8,7 @@
         public int BoardId { get; set; }
         public int ColunaId { get; set; }
         public int UsuarioCriadorId { get; set; }
+        public int UsuarioDestinoId { get; set; }
 
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3g32iXNVnss=",
+  "dgSpecHash": "3TlqbVWYmzQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Senai\\Documents\\NetBeansProjects\\TarefasMauiv2\\TarefasMauiv2.csproj",
+  "projectFilePath": "C:\\Users\\Senai\\Music\\Entrega\\provas-worldskills\\Entrega Tarefa 09-03\\TarefasMauiv2\\TarefasMauiv2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Senai\\.nuget\\packages\\googlegson\\2.13.0.1\\googlegson.2.13.0.1.nupkg.sha512",
     "C:\\Users\\Senai\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.9\\microsoft.extensions.configuration.9.0.9.nupkg.sha512",

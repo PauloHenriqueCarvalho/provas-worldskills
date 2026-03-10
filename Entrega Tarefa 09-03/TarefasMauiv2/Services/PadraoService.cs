@@ -30,7 +30,7 @@ namespace TarefasMauiv2.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
                 return default;
             }
 
@@ -52,7 +52,6 @@ namespace TarefasMauiv2.Services
             }
 
         }
-
         public async Task<T> Put<T>(string end, object obj)
         {
             try
@@ -60,6 +59,7 @@ namespace TarefasMauiv2.Services
                 var json = JsonConvert.SerializeObject(obj);
                 var con = new StringContent(json, Encoding.UTF8, "application/json");
                 var res = await cliente.PutAsync(end, con);
+
                 var ret = await res.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<T>(ret);
 
@@ -71,7 +71,6 @@ namespace TarefasMauiv2.Services
             }
 
         }
-
         public async Task Delete(string end)
         {
             try

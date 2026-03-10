@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TarefasMauiv2.View.AddTarefaView"
+             Title="AddTarefaView">
+    <VerticalStackLayout Padding="30" Spacing="20">
+        <Entry Placeholder="Titulo" x:Name="txtTitulo" WidthRequest="250"/>
+        <Entry Placeholder="Descricao" x:Name="txtDescricao" WidthRequest="250"/>
+        <VerticalStackLayout Spacing="8">
+            <Label HorizontalOptions="Center" Text="Data de vencimento"/>
+            <DatePicker  x:Name="txtDataVencimento" WidthRequest="250"/>
+            <TimePicker  x:Name="txtHoraVencimento" WidthRequest="250"/>
+        </VerticalStackLayout>
+        <VerticalStackLayout Spacing="8">
+            <Label HorizontalOptions="Center" Text="Selecione o Usuario de destino"/>
+            <Picker x:Name="pckUsuarios" Title="Selecione o usuario" WidthRequest="250" ItemDisplayBinding="{Binding Nome}"/>
+        </VerticalStackLayout>
+        <VerticalStackLayout Spacing="8">
+            <Label HorizontalOptions="Center" Text="Selecione a coluna"/>
+            <Picker x:Name="pckColuna" WidthRequest="250" Title="Selecione a coluna" ItemDisplayBinding="{Binding Nome}"/>
+        </VerticalStackLayout>
+        <Button Clicked="OnCadastrar" Text="Cadastrar" WidthRequest="250"/>
+    </VerticalStackLayout>
+</ContentPage>

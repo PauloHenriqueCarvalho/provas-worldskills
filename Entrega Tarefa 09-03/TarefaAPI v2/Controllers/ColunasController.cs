@@ -35,8 +35,49 @@ namespace TarefaAPI_v2.Controllers
 
             });
             await context.SaveChangesAsync();
-            return Created();
+            var r = await context.Colunas.FirstOrDefaultAsync(x => x.Nome == dto.Nome && x.BoardId == dto.BoardId);
+            return Ok(r);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetColunasTarefas(int id)
+        {
+            var colunas = await context.Colunas
+                .Include(x => x.Tarefas)
+                .Where(x => x.BoardId == id).ToListAsync();
+            return Ok(colunas);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var d = await context.Colunas.FirstOrDefaultAsync(x => x.Id == id);
+            context.Colunas.Remove(d);
+            await context.SaveChangesAsync();
+            return Ok();
+        }
+
+        public class ColunaOrdemDTO
+        {
+            public int Id { get; set; }
+            public int Ordem { get; set; }
+        }
+
+        [HttpPut("Ordenar")]
+        public async Task<IActionResult> OrdenarColunas([FromBody] List<ColunaOrdemDTO> dto)
+        {
+            foreach (var colunaOrdem in dto)
+            {
+                var c = await context.Colunas.FindAsync(colunaOrdem.Id);
+                if (c != null)
+                {
+                    c.Ordem = colunaOrdem.Ordem;
+                }
+            }
+            await context.SaveChangesAsync();
+            return Ok();
+
+
+        }
     }
 }
