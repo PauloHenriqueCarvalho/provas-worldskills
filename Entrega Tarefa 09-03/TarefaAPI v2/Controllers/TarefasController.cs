@@ -89,6 +89,24 @@ namespace TarefaAPI_v2.Controllers
 
         }
 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var t = await context.Tarefas.FindAsync(id);
+            context.Tarefas.Remove(t);
+            await context.SaveChangesAsync();
+            return Ok();
+        }
+
+        [HttpPut("arquivar/{id}")]
+        public async Task<IActionResult> Arquivar(int id)
+        {
+            var t = await context.Tarefas.FindAsync(id);
+            t.Arquivada = true;
+            await context.SaveChangesAsync();
+            return Ok(t);
+        }
+
 
 
     }

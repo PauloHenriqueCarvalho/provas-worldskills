@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Senai\\Music\\Entrega\\provas-worldskills\\Entrega Tarefa 09-03\\TarefaAPI v2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ACD80C21-E091-4FFD-9A79-4B501E589093}|TarefaAPI v2.csproj|c:\\users\\senai\\music\\entrega\\provas-worldskills\\entrega tarefa 09-03\\tarefaapi v2\\controllers\\colunascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ACD80C21-E091-4FFD-9A79-4B501E589093}|TarefaAPI v2.csproj|solutionrelative:controllers\\colunascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{ACD80C21-E091-4FFD-9A79-4B501E589093}|TarefaAPI v2.csproj|c:\\users\\senai\\music\\entrega\\provas-worldskills\\entrega tarefa 09-03\\tarefaapi v2\\controllers\\tarefascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ACD80C21-E091-4FFD-9A79-4B501E589093}|TarefaAPI v2.csproj|solutionrelative:controllers\\tarefascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ACD80C21-E091-4FFD-9A79-4B501E589093}|TarefaAPI v2.csproj|c:\\users\\senai\\music\\entrega\\provas-worldskills\\entrega tarefa 09-03\\tarefaapi v2\\controllers\\colunascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ACD80C21-E091-4FFD-9A79-4B501E589093}|TarefaAPI v2.csproj|solutionrelative:controllers\\colunascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ACD80C21-E091-4FFD-9A79-4B501E589093}|TarefaAPI v2.csproj|c:\\users\\senai\\music\\entrega\\provas-worldskills\\entrega tarefa 09-03\\tarefaapi v2\\controllers\\boardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -70,7 +70,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 681,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -86,8 +86,7 @@
               "RelativeToolTip": "Controllers\\UsuarioController.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAwwEAAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T17:32:46.922Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-09T17:32:46.922Z"
             },
             {
               "$type": "Document",
@@ -99,18 +98,17 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAhwCAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T17:53:39.583Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-09T17:53:39.583Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "TarefasController.cs",
               "DocumentMoniker": "C:\\Users\\Senai\\Music\\Entrega\\provas-worldskills\\Entrega Tarefa 09-03\\TarefaAPI v2\\Controllers\\TarefasController.cs",
               "RelativeDocumentMoniker": "Controllers\\TarefasController.cs",
               "ToolTip": "C:\\Users\\Senai\\Music\\Entrega\\provas-worldskills\\Entrega Tarefa 09-03\\TarefaAPI v2\\Controllers\\TarefasController.cs",
               "RelativeToolTip": "Controllers\\TarefasController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAcwGYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-09T17:46:55.402Z",
               "EditorCaption": ""
@@ -137,21 +135,19 @@
               "RelativeToolTip": "DTOs\\CreateUsuarioDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T17:55:52.84Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-09T17:55:52.84Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ColunasController.cs",
               "DocumentMoniker": "C:\\Users\\Senai\\Music\\Entrega\\provas-worldskills\\Entrega Tarefa 09-03\\TarefaAPI v2\\Controllers\\ColunasController.cs",
               "RelativeDocumentMoniker": "Controllers\\ColunasController.cs",
               "ToolTip": "C:\\Users\\Senai\\Music\\Entrega\\provas-worldskills\\Entrega Tarefa 09-03\\TarefaAPI v2\\Controllers\\ColunasController.cs",
               "RelativeToolTip": "Controllers\\ColunasController.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAUwEsAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAAUwE0AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T17:41:41.063Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-09T17:41:41.063Z"
             },
             {
               "$type": "Document",
@@ -175,8 +171,7 @@
               "RelativeToolTip": "DTOs\\CreateTarefaDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T17:50:47.877Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-09T17:50:47.877Z"
             },
             {
               "$type": "Document",
@@ -188,8 +183,7 @@
               "RelativeToolTip": "Controllers\\BoardController.cs",
               "ViewState": "AgIAADIAAAAAAAAAAAAIwEMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T17:36:52.907Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-09T17:36:52.907Z"
             },
             {
               "$type": "Document",

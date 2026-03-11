@@ -72,13 +72,39 @@ public partial class TarefasView : ContentPage
 
         if (t == null) return;
 
-
-        string[] nomes = Colunas.Where(x => x.Coluna.Id != t.ColunaId).Select(s => s.Coluna.Nome).ToArray();
+        var listaNomes = new List<string>();
+        listaNomes.Add("Excluir");
+        listaNomes.Add("Editar");
+        listaNomes.AddRange(Colunas.Where(x => x.Coluna.Id != t.ColunaId).Select(s => s.Coluna.Nome).ToList());
+        string[] nomes = listaNomes.ToArray();
 
         string escolha = await DisplayActionSheet("Mover para coluna:", "Cancelar", null, nomes);
         if (escolha != "Cancelar" && !string.IsNullOrWhiteSpace(escolha))
         {
+
             var colunaSelecionada = Colunas.FirstOrDefault(x => x.Coluna.Nome == escolha);
+            if (escolha.Equals("Excluir"))
+            {
+                await DisplayAlert("Atenção", "Deseja excluir essa tarefa?", "Sim", "Cancelar");
+
+
+                if (Colunas.Any(x => x.Tarefas.Contains(t) && x.Coluna.Ordem == Colunas.Count + 1))
+                {
+                    await new PadraoService().Put<Tarefa>($"Tarefas/arquivar/{t.Id}", null);
+
+                }
+                else
+                {
+                    await new PadraoService().Delete($"Tarefas/{t.Id}");
+                }
+
+
+                await DisplayAlert("Sucesso", "Tarefa excluida com sucesso", "Ok");
+
+                Carregar();
+                return;
+            }
+
             await new PadraoService().Put<Tarefa>($"Tarefas/mover/{t.Id}/{colunaSelecionada.Coluna.Id}", null);
             await DisplayAlert("Sucesso", "Movido com sucesso", "Ok");
 

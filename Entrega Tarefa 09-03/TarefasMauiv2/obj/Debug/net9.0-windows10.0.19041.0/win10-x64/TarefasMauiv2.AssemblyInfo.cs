@@ -18,7 +18,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TarefasMauiv2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+28847fd742a6e5abb136aef8b5ffcb5f22e58d15")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+fb958e5ba4e4329842438304bd06ef9da67307a8")]
 [assembly: System.Reflection.AssemblyProductAttribute("TarefasMauiv2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TarefasMauiv2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
